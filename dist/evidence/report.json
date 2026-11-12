@@ -1,0 +1,1090 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-11-12T20:30:49.058Z",
+  "engineVersion": "1.1-audited",
+  "engineSha256": "72df844ca44a060b77471e0e57887ac25aae867ac8c3a2443a0648bf6cfc7044",
+  "engineFile": "../engine.mjs",
+  "execution": "Deterministic rules, not a trained AI model. Historical price data with simulated fills; no broker execution.",
+  "selection": "November 11 was chosen because the user requested a recent completed session, before examining its results. November 10 and the freely available November 9 dated-contract sample were then added as comparison runs. No parameter optimization was performed.",
+  "ruleChanges": "Existing numeric defaults retained. An implementation correction enforces the documented 60-minute five-minute-gap expiry before checking inversion; added context evidence and explicit rejection reasons. The correction did not change the six reported run outcomes.",
+  "assumptions": [
+    "Short-side only; entry window 09:30–11:30 New York. Candles at or after 11:30 cannot initiate a position.",
+    "A: three-candle bullish five-minute gap closes through its lower edge, with a bearish fifteen-minute gap touched in the prior 60 minutes.",
+    "B: bearish one-minute displacement body ≥ 8 points leaves a gap ≥ 1 point; a later bearish candle retests it.",
+    "Entry at the next contiguous minute open, with 1 adverse tick; stop above the prior five one-minute highs plus 1 point.",
+    "Fixed 2R price targets used because video-specific liquidity selection has not been formalized. This is a fixed-R research variant, not an exact replication of the discretionary trader.",
+    "Risk $100/trade; maximum 3 MNQ; daily budget $300; $1.24 round-trip fee/contract; MNQ $2/point. These are hypotheses, not verified account costs.",
+    "Stop before target if both occur in one minute; gap-through stop fills at worse open plus slippage. Target touches assumed filled at target with no queue model.",
+    "Maximum drawdown is measured only at trade exits. No Topstep trailing-drawdown compliance test, spread series, partial exits, tick-order fill replay, or news filter."
+  ],
+  "limitations": [
+    "Three selected sessions do not establish profitability or a future edge. Comparison sessions were selected after the first run.",
+    "No AI model has been trained or evaluated. A++ liquidity rules remain unverified, so no A++ performance claim is made.",
+    "Data are third-party vendor observations, not an exchange-certified audit. A timestamp and OHLC check does not establish feed completeness.",
+    "The free sources disagree: on November 9, 206 of 1,065 overlapping minute bars had identical OHLC; 859 differed, with a maximum field difference of 71.75 points. Sources are not pooled or treated as interchangeable.",
+    "Yahoo MNQ=F does not establish a dated contract month. Yahoo research should be checked against the exact TopstepX contract before execution.",
+    "The November 9 sample uses feed-receive timestamps. It confirms a separate dated-contract test, not the correctness of yesterday’s Yahoo prices."
+  ],
+  "datasets": [
+    {
+      "id": "2026-11-11-yahoo",
+      "date": "2026-11-11",
+      "file": "mnq-yahoo-2026-11-11.csv",
+      "name": "Yahoo Finance · MNQ=F",
+      "symbol": "MNQ=F",
+      "url": "https://finance.yahoo.com/quote/MNQ%3DF/",
+      "download": "https://query1.finance.yahoo.com/v8/finance/chart/MNQ%3DF?range=5d&interval=1m",
+      "method": "One-minute OHLC returned by Yahoo chart API. Selected all valid rows belonging to November 11 in America/New_York; null records omitted, no candles forward-filled. Front-contract symbol; dated contract month not returned by the API.",
+      "rawSha256": "633f93a72a0197ec8e38efe6a3a8c3ed77196ab50d9ac90c94d85a0a7f98e43a",
+      "kind": "Vendor minute bars",
+      "retrievedAt": "2026-11-12T20:23:56.536992Z",
+      "csvSha256": "c07128f0c3485327f3aae10aade8340ce1919a818d404a9caf34a41ee9492c6b",
+      "csvPath": "evidence/mnq-yahoo-2026-11-11.csv",
+      "rows": 1370,
+      "start": 1794373740000,
+      "end": 1794459480000,
+      "rthBars": 391,
+      "validation": {
+        "ascending": true,
+        "duplicates": 0,
+        "minuteAligned": true,
+        "validOHLC": true,
+        "onTickGrid": true,
+        "rthExpected": 391,
+        "rthObserved": 391,
+        "completeFiveMinuteBars": 273,
+        "completeFifteenMinuteBars": 90
+      },
+      "runs": [
+        {
+          "id": "2026-11-11-yahoo-A",
+          "label": "A+ / Five-minute inversion",
+          "result": {
+            "trades": [],
+            "signals": [
+              {
+                "setup": "A",
+                "context": true,
+                "contextEvidence": {
+                  "lo": 28305.25,
+                  "hi": 28347.25,
+                  "born": 1794409200000,
+                  "touchedAt": 1794410820000
+                },
+                "gap": {
+                  "lo": 28467.25,
+                  "hi": 28508.5,
+                  "born": 1794412800000,
+                  "used": false
+                },
+                "swing": 28521,
+                "t": 1794413340000,
+                "status": "Filtered",
+                "grade": "Research candidate",
+                "checks": [
+                  {
+                    "label": "Completed candle signal",
+                    "pass": true
+                  },
+                  {
+                    "label": "Five-minute gap inversion",
+                    "pass": true
+                  },
+                  {
+                    "label": "15-minute bearish gap context",
+                    "pass": true
+                  },
+                  {
+                    "label": "Liquidity target supplied",
+                    "pass": false
+                  },
+                  {
+                    "label": "Reward / risk ≥ 2",
+                    "pass": true
+                  },
+                  {
+                    "label": "Size fits risk limits",
+                    "pass": false
+                  }
+                ],
+                "liquidity": false,
+                "entry": 28466.75,
+                "stop": 28522,
+                "target": 28356.25,
+                "rr": 2,
+                "qty": 0,
+                "rejection": "One contract exceeds the risk budget"
+              }
+            ],
+            "net": 0,
+            "winRate": 0,
+            "profitFactor": null,
+            "maxDrawdown": 0,
+            "bars": 1370,
+            "cfg": {
+              "setup": "A",
+              "risk": 100,
+              "maxContracts": 3,
+              "dailyLoss": 300,
+              "commission": 1.24,
+              "slipTicks": 1,
+              "stopBuffer": 1,
+              "minGap": 1,
+              "displacement": 8,
+              "rr": 2,
+              "requireContext": true,
+              "requireLiquidity": false,
+              "levels": "",
+              "sessionStart": "09:30",
+              "sessionEnd": "11:30"
+            }
+          }
+        },
+        {
+          "id": "2026-11-11-yahoo-B",
+          "label": "B / One-minute continuation",
+          "result": {
+            "trades": [
+              {
+                "entry": 28356.25,
+                "stop": 28376.25,
+                "target": 28316.25,
+                "qty": 2,
+                "entryTime": 1794408000000,
+                "setup": "B",
+                "grade": "Research candidate",
+                "signalTime": 1794407940000,
+                "risk": 83.48,
+                "exit": 28316.25,
+                "exitTime": 1794408060000,
+                "pnl": 157.52,
+                "gross": 160,
+                "reason": "Target"
+              },
+              {
+                "entry": 28500.5,
+                "stop": 28508,
+                "target": 28485.5,
+                "qty": 3,
+                "entryTime": 1794413700000,
+                "setup": "B",
+                "grade": "Research candidate",
+                "signalTime": 1794413640000,
+                "risk": 50.22,
+                "exit": 28485.5,
+                "exitTime": 1794413700000,
+                "pnl": 86.28,
+                "gross": 90,
+                "reason": "Target"
+              }
+            ],
+            "signals": [
+              {
+                "setup": "B",
+                "context": false,
+                "gap": {
+                  "lo": 28351.75,
+                  "hi": 28385.5,
+                  "born": 1794407760000,
+                  "used": true
+                },
+                "swing": 28375.25,
+                "t": 1794407940000,
+                "status": "Simulated",
+                "grade": "Research candidate",
+                "checks": [
+                  {
+                    "label": "Completed candle signal",
+                    "pass": true
+                  },
+                  {
+                    "label": "One-minute bearish gap retest",
+                    "pass": true
+                  },
+                  {
+                    "label": "15-minute bearish gap context",
+                    "pass": false
+                  },
+                  {
+                    "label": "Liquidity target supplied",
+                    "pass": false
+                  },
+                  {
+                    "label": "Reward / risk ≥ 2",
+                    "pass": true
+                  },
+                  {
+                    "label": "Size fits risk limits",
+                    "pass": true
+                  }
+                ],
+                "liquidity": false,
+                "entry": 28356.25,
+                "stop": 28376.25,
+                "target": 28316.25,
+                "rr": 2,
+                "qty": 2
+              },
+              {
+                "setup": "B",
+                "context": false,
+                "gap": {
+                  "lo": 28304.75,
+                  "hi": 28326,
+                  "born": 1794409860000,
+                  "used": true
+                },
+                "swing": 28347.5,
+                "t": 1794409920000,
+                "status": "Filtered",
+                "grade": "Research candidate",
+                "checks": [
+                  {
+                    "label": "Completed candle signal",
+                    "pass": true
+                  },
+                  {
+                    "label": "One-minute bearish gap retest",
+                    "pass": true
+                  },
+                  {
+                    "label": "15-minute bearish gap context",
+                    "pass": false
+                  },
+                  {
+                    "label": "Liquidity target supplied",
+                    "pass": false
+                  },
+                  {
+                    "label": "Reward / risk ≥ 2",
+                    "pass": true
+                  },
+                  {
+                    "label": "Size fits risk limits",
+                    "pass": false
+                  }
+                ],
+                "liquidity": false,
+                "entry": 28293.25,
+                "stop": 28348.5,
+                "target": 28182.75,
+                "rr": 2,
+                "qty": 0,
+                "rejection": "One contract exceeds the risk budget"
+              },
+              {
+                "setup": "B",
+                "context": false,
+                "gap": {
+                  "lo": 28502.75,
+                  "hi": 28515.75,
+                  "born": 1794413220000,
+                  "used": true
+                },
+                "swing": 28507,
+                "t": 1794413640000,
+                "status": "Simulated",
+                "grade": "Research candidate",
+                "checks": [
+                  {
+                    "label": "Completed candle signal",
+                    "pass": true
+                  },
+                  {
+                    "label": "One-minute bearish gap retest",
+                    "pass": true
+                  },
+                  {
+                    "label": "15-minute bearish gap context",
+                    "pass": false
+                  },
+                  {
+                    "label": "Liquidity target supplied",
+                    "pass": false
+                  },
+                  {
+                    "label": "Reward / risk ≥ 2",
+                    "pass": true
+                  },
+                  {
+                    "label": "Size fits risk limits",
+                    "pass": true
+                  }
+                ],
+                "liquidity": false,
+                "entry": 28500.5,
+                "stop": 28508,
+                "target": 28485.5,
+                "rr": 2,
+                "qty": 3
+              }
+            ],
+            "net": 243.8,
+            "winRate": 100,
+            "profitFactor": null,
+            "maxDrawdown": 0,
+            "bars": 1370,
+            "cfg": {
+              "setup": "B",
+              "risk": 100,
+              "maxContracts": 3,
+              "dailyLoss": 300,
+              "commission": 1.24,
+              "slipTicks": 1,
+              "stopBuffer": 1,
+              "minGap": 1,
+              "displacement": 8,
+              "rr": 2,
+              "requireContext": true,
+              "requireLiquidity": false,
+              "levels": "",
+              "sessionStart": "09:30",
+              "sessionEnd": "11:30"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "2026-11-10-yahoo",
+      "date": "2026-11-10",
+      "file": "mnq-yahoo-2026-11-10.csv",
+      "name": "Yahoo Finance · MNQ=F",
+      "symbol": "MNQ=F",
+      "url": "https://finance.yahoo.com/quote/MNQ%3DF/",
+      "download": "https://query1.finance.yahoo.com/v8/finance/chart/MNQ%3DF?range=5d&interval=1m",
+      "method": "Same Yahoo response and selection procedure, using November 10. Added as a comparison session after the November 11 run; not a prespecified out-of-sample validation.",
+      "rawSha256": "633f93a72a0197ec8e38efe6a3a8c3ed77196ab50d9ac90c94d85a0a7f98e43a",
+      "kind": "Vendor minute bars",
+      "retrievedAt": "2026-11-12T20:23:56.536992Z",
+      "csvSha256": "fc8ec59c7937ba6038d193d8b76ae398fc66bff6621b48e4a74dae24f7ec774c",
+      "csvPath": "evidence/mnq-yahoo-2026-11-10.csv",
+      "rows": 1355,
+      "start": 1794287340000,
+      "end": 1794373080000,
+      "rthBars": 391,
+      "validation": {
+        "ascending": true,
+        "duplicates": 0,
+        "minuteAligned": true,
+        "validOHLC": true,
+        "onTickGrid": true,
+        "rthExpected": 391,
+        "rthObserved": 391,
+        "completeFiveMinuteBars": 267,
+        "completeFifteenMinuteBars": 87
+      },
+      "runs": [
+        {
+          "id": "2026-11-10-yahoo-A",
+          "label": "A+ / Five-minute inversion",
+          "result": {
+            "trades": [],
+            "signals": [
+              {
+                "setup": "A",
+                "context": true,
+                "contextEvidence": {
+                  "lo": 27745,
+                  "hi": 27843,
+                  "born": 1794319200000,
+                  "touchedAt": 1794321840000
+                },
+                "gap": {
+                  "lo": 27887.75,
+                  "hi": 27993.5,
+                  "born": 1794323100000,
+                  "used": false
+                },
+                "swing": 27956,
+                "t": 1794325140000,
+                "status": "Filtered",
+                "grade": "Research candidate",
+                "checks": [
+                  {
+                    "label": "Completed candle signal",
+                    "pass": true
+                  },
+                  {
+                    "label": "Five-minute gap inversion",
+                    "pass": true
+                  },
+                  {
+                    "label": "15-minute bearish gap context",
+                    "pass": true
+                  },
+                  {
+                    "label": "Liquidity target supplied",
+                    "pass": false
+                  },
+                  {
+                    "label": "Reward / risk ≥ 2",
+                    "pass": true
+                  },
+                  {
+                    "label": "Size fits risk limits",
+                    "pass": false
+                  }
+                ],
+                "liquidity": false,
+                "entry": 27870,
+                "stop": 27957,
+                "target": 27696,
+                "rr": 2,
+                "qty": 0,
+                "rejection": "One contract exceeds the risk budget"
+              },
+              {
+                "setup": "A",
+                "context": false,
+                "contextEvidence": {
+                  "lo": 27745,
+                  "hi": 27843,
+                  "born": 1794319200000,
+                  "touchedAt": 1794321840000
+                },
+                "gap": {
+                  "lo": 27859.25,
+                  "hi": 27868.25,
+                  "born": 1794322800000,
+                  "used": false
+                },
+                "swing": 27885,
+                "t": 1794325440000,
+                "status": "Missing context",
+                "grade": "Research candidate",
+                "checks": [
+                  {
+                    "label": "Completed candle signal",
+                    "pass": true
+                  },
+                  {
+                    "label": "Five-minute gap inversion",
+                    "pass": true
+                  },
+                  {
+                    "label": "15-minute bearish gap context",
+                    "pass": false
+                  }
+                ],
+                "liquidity": false,
+                "rejection": "No qualifying 15-minute bearish-gap context"
+              }
+            ],
+            "net": 0,
+            "winRate": 0,
+            "profitFactor": null,
+            "maxDrawdown": 0,
+            "bars": 1355,
+            "cfg": {
+              "setup": "A",
+              "risk": 100,
+              "maxContracts": 3,
+              "dailyLoss": 300,
+              "commission": 1.24,
+              "slipTicks": 1,
+              "stopBuffer": 1,
+              "minGap": 1,
+              "displacement": 8,
+              "rr": 2,
+              "requireContext": true,
+              "requireLiquidity": false,
+              "levels": "",
+              "sessionStart": "09:30",
+              "sessionEnd": "11:30"
+            }
+          }
+        },
+        {
+          "id": "2026-11-10-yahoo-B",
+          "label": "B / One-minute continuation",
+          "result": {
+            "trades": [
+              {
+                "entry": 27755.25,
+                "stop": 27784,
+                "target": 27697.75,
+                "qty": 1,
+                "entryTime": 1794326340000,
+                "setup": "B",
+                "grade": "Research candidate",
+                "signalTime": 1794326280000,
+                "risk": 59.24,
+                "exit": 27784.25,
+                "exitTime": 1794326400000,
+                "pnl": -59.24,
+                "gross": -58,
+                "reason": "Stop"
+              }
+            ],
+            "signals": [
+              {
+                "setup": "B",
+                "context": false,
+                "gap": {
+                  "lo": 27703.5,
+                  "hi": 27734.25,
+                  "born": 1794321120000,
+                  "used": true
+                },
+                "swing": 27788,
+                "t": 1794321120000,
+                "status": "Filtered",
+                "grade": "Research candidate",
+                "checks": [
+                  {
+                    "label": "Completed candle signal",
+                    "pass": true
+                  },
+                  {
+                    "label": "One-minute bearish gap retest",
+                    "pass": true
+                  },
+                  {
+                    "label": "15-minute bearish gap context",
+                    "pass": false
+                  },
+                  {
+                    "label": "Liquidity target supplied",
+                    "pass": false
+                  },
+                  {
+                    "label": "Reward / risk ≥ 2",
+                    "pass": true
+                  },
+                  {
+                    "label": "Size fits risk limits",
+                    "pass": false
+                  }
+                ],
+                "liquidity": false,
+                "entry": 27669.5,
+                "stop": 27789,
+                "target": 27430.5,
+                "rr": 2,
+                "qty": 0,
+                "rejection": "One contract exceeds the risk budget"
+              },
+              {
+                "setup": "B",
+                "context": false,
+                "gap": {
+                  "lo": 28018.75,
+                  "hi": 28023.75,
+                  "born": 1794323580000,
+                  "used": true
+                },
+                "swing": 28041.25,
+                "t": 1794323700000,
+                "status": "Filtered",
+                "grade": "Research candidate",
+                "checks": [
+                  {
+                    "label": "Completed candle signal",
+                    "pass": true
+                  },
+                  {
+                    "label": "One-minute bearish gap retest",
+                    "pass": true
+                  },
+                  {
+                    "label": "15-minute bearish gap context",
+                    "pass": false
+                  },
+                  {
+                    "label": "Liquidity target supplied",
+                    "pass": false
+                  },
+                  {
+                    "label": "Reward / risk ≥ 2",
+                    "pass": true
+                  },
+                  {
+                    "label": "Size fits risk limits",
+                    "pass": false
+                  }
+                ],
+                "liquidity": false,
+                "entry": 27978.25,
+                "stop": 28042.25,
+                "target": 27850.25,
+                "rr": 2,
+                "qty": 0,
+                "rejection": "One contract exceeds the risk budget"
+              },
+              {
+                "setup": "B",
+                "context": false,
+                "gap": {
+                  "lo": 27993.75,
+                  "hi": 27999,
+                  "born": 1794323820000,
+                  "used": true
+                },
+                "swing": 28034.75,
+                "t": 1794323820000,
+                "status": "Filtered",
+                "grade": "Research candidate",
+                "checks": [
+                  {
+                    "label": "Completed candle signal",
+                    "pass": true
+                  },
+                  {
+                    "label": "One-minute bearish gap retest",
+                    "pass": true
+                  },
+                  {
+                    "label": "15-minute bearish gap context",
+                    "pass": false
+                  },
+                  {
+                    "label": "Liquidity target supplied",
+                    "pass": false
+                  },
+                  {
+                    "label": "Reward / risk ≥ 2",
+                    "pass": true
+                  },
+                  {
+                    "label": "Size fits risk limits",
+                    "pass": false
+                  }
+                ],
+                "liquidity": false,
+                "entry": 27973,
+                "stop": 28035.75,
+                "target": 27847.5,
+                "rr": 2,
+                "qty": 0,
+                "rejection": "One contract exceeds the risk budget"
+              },
+              {
+                "setup": "B",
+                "context": false,
+                "gap": {
+                  "lo": 27926.5,
+                  "hi": 27960,
+                  "born": 1794324300000,
+                  "used": true
+                },
+                "swing": 27993.25,
+                "t": 1794324360000,
+                "status": "Filtered",
+                "grade": "Research candidate",
+                "checks": [
+                  {
+                    "label": "Completed candle signal",
+                    "pass": true
+                  },
+                  {
+                    "label": "One-minute bearish gap retest",
+                    "pass": true
+                  },
+                  {
+                    "label": "15-minute bearish gap context",
+                    "pass": false
+                  },
+                  {
+                    "label": "Liquidity target supplied",
+                    "pass": false
+                  },
+                  {
+                    "label": "Reward / risk ≥ 2",
+                    "pass": true
+                  },
+                  {
+                    "label": "Size fits risk limits",
+                    "pass": false
+                  }
+                ],
+                "liquidity": false,
+                "entry": 27927.25,
+                "stop": 27994.25,
+                "target": 27793.25,
+                "rr": 2,
+                "qty": 0,
+                "rejection": "One contract exceeds the risk budget"
+              },
+              {
+                "setup": "B",
+                "context": false,
+                "gap": {
+                  "lo": 27893,
+                  "hi": 27896.25,
+                  "born": 1794325140000,
+                  "used": true
+                },
+                "swing": 27956,
+                "t": 1794325140000,
+                "status": "Filtered",
+                "grade": "Research candidate",
+                "checks": [
+                  {
+                    "label": "Completed candle signal",
+                    "pass": true
+                  },
+                  {
+                    "label": "One-minute bearish gap retest",
+                    "pass": true
+                  },
+                  {
+                    "label": "15-minute bearish gap context",
+                    "pass": false
+                  },
+                  {
+                    "label": "Liquidity target supplied",
+                    "pass": false
+                  },
+                  {
+                    "label": "Reward / risk ≥ 2",
+                    "pass": true
+                  },
+                  {
+                    "label": "Size fits risk limits",
+                    "pass": false
+                  }
+                ],
+                "liquidity": false,
+                "entry": 27870,
+                "stop": 27957,
+                "target": 27696,
+                "rr": 2,
+                "qty": 0,
+                "rejection": "One contract exceeds the risk budget"
+              },
+              {
+                "setup": "B",
+                "context": false,
+                "gap": {
+                  "lo": 27816.25,
+                  "hi": 27827.5,
+                  "born": 1794325560000,
+                  "used": true
+                },
+                "swing": 27865.5,
+                "t": 1794325560000,
+                "status": "Filtered",
+                "grade": "Research candidate",
+                "checks": [
+                  {
+                    "label": "Completed candle signal",
+                    "pass": true
+                  },
+                  {
+                    "label": "One-minute bearish gap retest",
+                    "pass": true
+                  },
+                  {
+                    "label": "15-minute bearish gap context",
+                    "pass": false
+                  },
+                  {
+                    "label": "Liquidity target supplied",
+                    "pass": false
+                  },
+                  {
+                    "label": "Reward / risk ≥ 2",
+                    "pass": true
+                  },
+                  {
+                    "label": "Size fits risk limits",
+                    "pass": false
+                  }
+                ],
+                "liquidity": false,
+                "entry": 27790,
+                "stop": 27866.5,
+                "target": 27637,
+                "rr": 2,
+                "qty": 0,
+                "rejection": "One contract exceeds the risk budget"
+              },
+              {
+                "setup": "B",
+                "context": false,
+                "gap": {
+                  "lo": 27762.25,
+                  "hi": 27772.25,
+                  "born": 1794325920000,
+                  "used": true
+                },
+                "swing": 27783,
+                "t": 1794326280000,
+                "status": "Simulated",
+                "grade": "Research candidate",
+                "checks": [
+                  {
+                    "label": "Completed candle signal",
+                    "pass": true
+                  },
+                  {
+                    "label": "One-minute bearish gap retest",
+                    "pass": true
+                  },
+                  {
+                    "label": "15-minute bearish gap context",
+                    "pass": false
+                  },
+                  {
+                    "label": "Liquidity target supplied",
+                    "pass": false
+                  },
+                  {
+                    "label": "Reward / risk ≥ 2",
+                    "pass": true
+                  },
+                  {
+                    "label": "Size fits risk limits",
+                    "pass": true
+                  }
+                ],
+                "liquidity": false,
+                "entry": 27755.25,
+                "stop": 27784,
+                "target": 27697.75,
+                "rr": 2,
+                "qty": 1
+              }
+            ],
+            "net": -59.24,
+            "winRate": 0,
+            "profitFactor": 0,
+            "maxDrawdown": 59.24,
+            "bars": 1355,
+            "cfg": {
+              "setup": "B",
+              "risk": 100,
+              "maxContracts": 3,
+              "dailyLoss": 300,
+              "commission": 1.24,
+              "slipTicks": 1,
+              "stopBuffer": 1,
+              "minGap": 1,
+              "displacement": 8,
+              "rr": 2,
+              "requireContext": true,
+              "requireLiquidity": false,
+              "levels": "",
+              "sessionStart": "09:30",
+              "sessionEnd": "11:30"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "2026-11-09-ticks",
+      "date": "2026-11-09",
+      "file": "mnqz6-ticks-2026-11-09.csv",
+      "name": "Historical Futures Data · MNQZ6",
+      "symbol": "MNQZ6",
+      "url": "https://historicalfuturesdata.com/browse/MNQ",
+      "download": "https://historicalfuturesdata.com/samples/MNQ/tick/cme.mnq.tick.MNQZ6.2026-11-09.parquet",
+      "rawSha256": "0d2c7066dcd0b174b1ca93f866e820c1ea8df6b9b3f37f399e0f5b58197986c9",
+      "method": "Aggregated 3,254,762 provider-supplied MNQZ6 trade records into UTC-aligned one-minute OHLC in the original timestamp order. No empty candles fabricated. Original file covers November 9 UTC (November 8 at 19:00 through November 9 at 18:59 New York). Prices are raw dated-contract values. Fills are still simulated from minute bars, not executed or replayed on ticks.",
+      "kind": "Trade-record aggregation",
+      "retrievedAt": "2026-11-12T20:24:31.741358Z",
+      "csvSha256": "d88b737d54de215d45e2289722acfb198d6c48ae69b129abc83812f1a1411bcc",
+      "csvPath": "evidence/mnqz6-ticks-2026-11-09.csv",
+      "rows": 1380,
+      "start": 1794182400000,
+      "end": 1794268740000,
+      "rthBars": 391,
+      "validation": {
+        "ascending": true,
+        "duplicates": 0,
+        "minuteAligned": true,
+        "validOHLC": true,
+        "onTickGrid": true,
+        "rthExpected": 391,
+        "rthObserved": 391,
+        "completeFiveMinuteBars": 276,
+        "completeFifteenMinuteBars": 92
+      },
+      "runs": [
+        {
+          "id": "2026-11-09-ticks-A",
+          "label": "A+ / Five-minute inversion",
+          "result": {
+            "trades": [],
+            "signals": [
+              {
+                "setup": "A",
+                "context": false,
+                "contextEvidence": {
+                  "lo": 27009.25,
+                  "hi": 27016.5,
+                  "born": 1794210300000,
+                  "touchedAt": 1794213060000
+                },
+                "gap": {
+                  "lo": 27893.75,
+                  "hi": 27935.25,
+                  "born": 1794240000000,
+                  "used": false
+                },
+                "swing": 27906.5,
+                "t": 1794241440000,
+                "status": "Missing context",
+                "grade": "Research candidate",
+                "checks": [
+                  {
+                    "label": "Completed candle signal",
+                    "pass": true
+                  },
+                  {
+                    "label": "Five-minute gap inversion",
+                    "pass": true
+                  },
+                  {
+                    "label": "15-minute bearish gap context",
+                    "pass": false
+                  }
+                ],
+                "liquidity": false,
+                "rejection": "No qualifying 15-minute bearish-gap context"
+              },
+              {
+                "setup": "A",
+                "context": false,
+                "contextEvidence": {
+                  "lo": 27009.25,
+                  "hi": 27016.5,
+                  "born": 1794210300000,
+                  "touchedAt": 1794213060000
+                },
+                "gap": {
+                  "lo": 27875,
+                  "hi": 27883,
+                  "born": 1794239700000,
+                  "used": false
+                },
+                "swing": 27898.25,
+                "t": 1794241740000,
+                "status": "Missing context",
+                "grade": "Research candidate",
+                "checks": [
+                  {
+                    "label": "Completed candle signal",
+                    "pass": true
+                  },
+                  {
+                    "label": "Five-minute gap inversion",
+                    "pass": true
+                  },
+                  {
+                    "label": "15-minute bearish gap context",
+                    "pass": false
+                  }
+                ],
+                "liquidity": false,
+                "rejection": "No qualifying 15-minute bearish-gap context"
+              }
+            ],
+            "net": 0,
+            "winRate": 0,
+            "profitFactor": null,
+            "maxDrawdown": 0,
+            "bars": 1380,
+            "cfg": {
+              "setup": "A",
+              "risk": 100,
+              "maxContracts": 3,
+              "dailyLoss": 300,
+              "commission": 1.24,
+              "slipTicks": 1,
+              "stopBuffer": 1,
+              "minGap": 1,
+              "displacement": 8,
+              "rr": 2,
+              "requireContext": true,
+              "requireLiquidity": false,
+              "levels": "",
+              "sessionStart": "09:30",
+              "sessionEnd": "11:30"
+            }
+          }
+        },
+        {
+          "id": "2026-11-09-ticks-B",
+          "label": "B / One-minute continuation",
+          "result": {
+            "trades": [],
+            "signals": [
+              {
+                "setup": "B",
+                "context": false,
+                "gap": {
+                  "lo": 27954.5,
+                  "hi": 27985.75,
+                  "born": 1794240360000,
+                  "used": true
+                },
+                "swing": 27991,
+                "t": 1794240480000,
+                "status": "Filtered",
+                "grade": "Research candidate",
+                "checks": [
+                  {
+                    "label": "Completed candle signal",
+                    "pass": true
+                  },
+                  {
+                    "label": "One-minute bearish gap retest",
+                    "pass": true
+                  },
+                  {
+                    "label": "15-minute bearish gap context",
+                    "pass": false
+                  },
+                  {
+                    "label": "Liquidity target supplied",
+                    "pass": false
+                  },
+                  {
+                    "label": "Reward / risk ≥ 2",
+                    "pass": true
+                  },
+                  {
+                    "label": "Size fits risk limits",
+                    "pass": false
+                  }
+                ],
+                "liquidity": false,
+                "entry": 27939.75,
+                "stop": 27992,
+                "target": 27835.25,
+                "rr": 2,
+                "qty": 0,
+                "rejection": "One contract exceeds the risk budget"
+              }
+            ],
+            "net": 0,
+            "winRate": 0,
+            "profitFactor": null,
+            "maxDrawdown": 0,
+            "bars": 1380,
+            "cfg": {
+              "setup": "B",
+              "risk": 100,
+              "maxContracts": 3,
+              "dailyLoss": 300,
+              "commission": 1.24,
+              "slipTicks": 1,
+              "stopBuffer": 1,
+              "minGap": 1,
+              "displacement": 8,
+              "rr": 2,
+              "requireContext": true,
+              "requireLiquidity": false,
+              "levels": "",
+              "sessionStart": "09:30",
+              "sessionEnd": "11:30"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
