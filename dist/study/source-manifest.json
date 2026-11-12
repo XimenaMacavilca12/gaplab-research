@@ -1,0 +1,113 @@
+{
+  "provider": "Yahoo Finance chart API",
+  "downloads": [
+    {
+      "symbol": "MNQ",
+      "start": "2026-10-22",
+      "end": "2026-10-30",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/MNQ%3DF?period1=1792627200&period2=1793318400&interval=1m",
+      "file": "MNQ-2026-10-22-2026-10-30.json",
+      "bars": 10073,
+      "sha256": "d622b71b608a68ae0cdf58043eedc2c3baae54484637ad614be5217c4713b5cc",
+      "retrievedAt": "2026-11-12T20:44:24.169989+00:00"
+    },
+    {
+      "symbol": "MNQ",
+      "start": "2026-10-30",
+      "end": "2026-11-07",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/MNQ%3DF?period1=1793318400&period2=1794009600&interval=1m",
+      "file": "MNQ-2026-10-30-2026-11-07.json",
+      "bars": 10073,
+      "sha256": "74bf0f2d1a849c4fe2bda91a78b65707d24c9e4dcd2d47273a2bc24b8fb601c5",
+      "retrievedAt": "2026-11-12T20:44:24.164470+00:00"
+    },
+    {
+      "symbol": "MNQ",
+      "start": "2026-11-07",
+      "end": "2026-11-12",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/MNQ%3DF?period1=1794009600&period2=1794441600&interval=1m",
+      "file": "MNQ-2026-11-07-2026-11-12.json",
+      "bars": 4367,
+      "sha256": "c4dd9b741c3d810b90503bd6a069335e757beef299e1482bddbcd98fb078d57e",
+      "retrievedAt": "2026-11-12T20:44:24.126636+00:00"
+    },
+    {
+      "symbol": "MES",
+      "start": "2026-10-22",
+      "end": "2026-10-30",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/MES%3DF?period1=1792627200&period2=1793318400&interval=1m",
+      "file": "MES-2026-10-22-2026-10-30.json",
+      "bars": 10073,
+      "sha256": "c597036f06d954c5f5bfc066676d2b74badf110f763cd98fb8dfeb76cb5580a3",
+      "retrievedAt": "2026-11-12T20:44:24.199577+00:00"
+    },
+    {
+      "symbol": "MES",
+      "start": "2026-10-30",
+      "end": "2026-11-07",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/MES%3DF?period1=1793318400&period2=1794009600&interval=1m",
+      "file": "MES-2026-10-30-2026-11-07.json",
+      "bars": 10073,
+      "sha256": "ee34b25d877c32f5bbce4f647147c515bdbcbcea559106ef538629aa93d55e3c",
+      "retrievedAt": "2026-11-12T20:44:24.373899+00:00"
+    },
+    {
+      "symbol": "MES",
+      "start": "2026-11-07",
+      "end": "2026-11-12",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/MES%3DF?period1=1794009600&period2=1794441600&interval=1m",
+      "file": "MES-2026-11-07-2026-11-12.json",
+      "bars": 4367,
+      "sha256": "2ab55ca3bdc228492d0ec5eb8d01d3dadfaab49841b96e79d4be62299dc09370",
+      "retrievedAt": "2026-11-12T20:44:24.398913+00:00"
+    }
+  ],
+  "validation": {
+    "MNQ": {
+      "rows": 20416,
+      "nullOHLCDiscarded": 4097,
+      "badPriceRows": 0,
+      "missingVolumeRows": 0,
+      "rthByDate": {
+        "2026-10-22": 391,
+        "2026-10-23": 391,
+        "2026-10-26": 391,
+        "2026-10-27": 391,
+        "2026-10-28": 391,
+        "2026-10-29": 391,
+        "2026-10-30": 382,
+        "2026-11-02": 391,
+        "2026-11-03": 391,
+        "2026-11-04": 391,
+        "2026-11-05": 391,
+        "2026-11-06": 391,
+        "2026-11-09": 391,
+        "2026-11-10": 391,
+        "2026-11-11": 391
+      }
+    },
+    "MES": {
+      "rows": 20414,
+      "nullOHLCDiscarded": 4099,
+      "badPriceRows": 0,
+      "missingVolumeRows": 0,
+      "rthByDate": {
+        "2026-10-22": 391,
+        "2026-10-23": 391,
+        "2026-10-26": 391,
+        "2026-10-27": 391,
+        "2026-10-28": 391,
+        "2026-10-29": 391,
+        "2026-10-30": 382,
+        "2026-11-02": 391,
+        "2026-11-03": 391,
+        "2026-11-04": 391,
+        "2026-11-05": 391,
+        "2026-11-06": 391,
+        "2026-11-09": 391,
+        "2026-11-10": 391,
+        "2026-11-11": 391
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "frozenAt": "2026-11-12T20:48:14.275Z",
+  "config": {
+    "version": "comparison-1",
+    "evaluationDays": [
+      "2026-11-02",
+      "2026-11-03",
+      "2026-11-04",
+      "2026-11-05",
+      "2026-11-06",
+      "2026-11-09",
+      "2026-11-10",
+      "2026-11-11"
+    ],
+    "trainingDays": [
+      "2026-10-23",
+      "2026-10-26",
+      "2026-10-27",
+      "2026-10-28",
+      "2026-10-29"
+    ],
+    "risk": 100,
+    "maxContracts": 3,
+    "dailyLoss": 300,
+    "commission": 1.24,
+    "slipTicks": 1,
+    "start": "09:30",
+    "end": "11:30",
+    "flat": "16:00",
+    "openingRangeMinutes": 15,
+    "atrPeriod": 14,
+    "bandPeriod": 20,
+    "bandSigma": 2,
+    "flatSlopeATR": 0.25,
+    "pairLookback": 60,
+    "pairEntryZ": 2,
+    "pairExitZ": 0.5,
+    "pairMaxMinutes": 30
+  },
+  "configSha256": "2266c80c35d2a52537078f0bfe5cdcce2228660ebadd4a005cb6642479590f81",
+  "selection": "Eight complete common sessions, November 2–11, 2026. Five earlier complete sessions for hedge sizing only. October 30 excluded from training because each source had only 382 of 391 required RTH minute timestamps. Rules are analyst-specified research variants, not optimized. Previously viewed November 10–11 FVG evidence overlaps this sample; this is not an untouched prospective or out-of-sample strategy validation."
+}

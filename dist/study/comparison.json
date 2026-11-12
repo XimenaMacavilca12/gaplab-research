@@ -1,0 +1,5993 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-12T20:55:03.005Z",
+  "freeze": {
+    "frozenAt": "2026-11-12T20:48:14.275Z",
+    "config": {
+      "version": "comparison-1",
+      "evaluationDays": [
+        "2026-11-02",
+        "2026-11-03",
+        "2026-11-04",
+        "2026-11-05",
+        "2026-11-06",
+        "2026-11-09",
+        "2026-11-10",
+        "2026-11-11"
+      ],
+      "trainingDays": [
+        "2026-10-23",
+        "2026-10-26",
+        "2026-10-27",
+        "2026-10-28",
+        "2026-10-29"
+      ],
+      "risk": 100,
+      "maxContracts": 3,
+      "dailyLoss": 300,
+      "commission": 1.24,
+      "slipTicks": 1,
+      "start": "09:30",
+      "end": "11:30",
+      "flat": "16:00",
+      "openingRangeMinutes": 15,
+      "atrPeriod": 14,
+      "bandPeriod": 20,
+      "bandSigma": 2,
+      "flatSlopeATR": 0.25,
+      "pairLookback": 60,
+      "pairEntryZ": 2,
+      "pairExitZ": 0.5,
+      "pairMaxMinutes": 30
+    },
+    "configSha256": "2266c80c35d2a52537078f0bfe5cdcce2228660ebadd4a005cb6642479590f81",
+    "selection": "Eight complete common sessions, November 2–11, 2026. Five earlier complete sessions for hedge sizing only. October 30 excluded from training because each source had only 382 of 391 required RTH minute timestamps. Rules are analyst-specified research variants, not optimized. Previously viewed November 10–11 FVG evidence overlaps this sample; this is not an untouched prospective or out-of-sample strategy validation."
+  },
+  "sources": {
+    "provider": "Yahoo Finance chart API",
+    "downloads": [
+      {
+        "symbol": "MNQ",
+        "start": "2026-10-22",
+        "end": "2026-10-30",
+        "url": "https://query1.finance.yahoo.com/v8/finance/chart/MNQ%3DF?period1=1792627200&period2=1793318400&interval=1m",
+        "file": "MNQ-2026-10-22-2026-10-30.json",
+        "bars": 10073,
+        "sha256": "d622b71b608a68ae0cdf58043eedc2c3baae54484637ad614be5217c4713b5cc",
+        "retrievedAt": "2026-11-12T20:44:24.169989+00:00"
+      },
+      {
+        "symbol": "MNQ",
+        "start": "2026-10-30",
+        "end": "2026-11-07",
+        "url": "https://query1.finance.yahoo.com/v8/finance/chart/MNQ%3DF?period1=1793318400&period2=1794009600&interval=1m",
+        "file": "MNQ-2026-10-30-2026-11-07.json",
+        "bars": 10073,
+        "sha256": "74bf0f2d1a849c4fe2bda91a78b65707d24c9e4dcd2d47273a2bc24b8fb601c5",
+        "retrievedAt": "2026-11-12T20:44:24.164470+00:00"
+      },
+      {
+        "symbol": "MNQ",
+        "start": "2026-11-07",
+        "end": "2026-11-12",
+        "url": "https://query1.finance.yahoo.com/v8/finance/chart/MNQ%3DF?period1=1794009600&period2=1794441600&interval=1m",
+        "file": "MNQ-2026-11-07-2026-11-12.json",
+        "bars": 4367,
+        "sha256": "c4dd9b741c3d810b90503bd6a069335e757beef299e1482bddbcd98fb078d57e",
+        "retrievedAt": "2026-11-12T20:44:24.126636+00:00"
+      },
+      {
+        "symbol": "MES",
+        "start": "2026-10-22",
+        "end": "2026-10-30",
+        "url": "https://query1.finance.yahoo.com/v8/finance/chart/MES%3DF?period1=1792627200&period2=1793318400&interval=1m",
+        "file": "MES-2026-10-22-2026-10-30.json",
+        "bars": 10073,
+        "sha256": "c597036f06d954c5f5bfc066676d2b74badf110f763cd98fb8dfeb76cb5580a3",
+        "retrievedAt": "2026-11-12T20:44:24.199577+00:00"
+      },
+      {
+        "symbol": "MES",
+        "start": "2026-10-30",
+        "end": "2026-11-07",
+        "url": "https://query1.finance.yahoo.com/v8/finance/chart/MES%3DF?period1=1793318400&period2=1794009600&interval=1m",
+        "file": "MES-2026-10-30-2026-11-07.json",
+        "bars": 10073,
+        "sha256": "ee34b25d877c32f5bbce4f647147c515bdbcbcea559106ef538629aa93d55e3c",
+        "retrievedAt": "2026-11-12T20:44:24.373899+00:00"
+      },
+      {
+        "symbol": "MES",
+        "start": "2026-11-07",
+        "end": "2026-11-12",
+        "url": "https://query1.finance.yahoo.com/v8/finance/chart/MES%3DF?period1=1794009600&period2=1794441600&interval=1m",
+        "file": "MES-2026-11-07-2026-11-12.json",
+        "bars": 4367,
+        "sha256": "2ab55ca3bdc228492d0ec5eb8d01d3dadfaab49841b96e79d4be62299dc09370",
+        "retrievedAt": "2026-11-12T20:44:24.398913+00:00"
+      }
+    ],
+    "validation": {
+      "MNQ": {
+        "rows": 20416,
+        "nullOHLCDiscarded": 4097,
+        "badPriceRows": 0,
+        "missingVolumeRows": 0,
+        "rthByDate": {
+          "2026-10-22": 391,
+          "2026-10-23": 391,
+          "2026-10-26": 391,
+          "2026-10-27": 391,
+          "2026-10-28": 391,
+          "2026-10-29": 391,
+          "2026-10-30": 382,
+          "2026-11-02": 391,
+          "2026-11-03": 391,
+          "2026-11-04": 391,
+          "2026-11-05": 391,
+          "2026-11-06": 391,
+          "2026-11-09": 391,
+          "2026-11-10": 391,
+          "2026-11-11": 391
+        }
+      },
+      "MES": {
+        "rows": 20414,
+        "nullOHLCDiscarded": 4099,
+        "badPriceRows": 0,
+        "missingVolumeRows": 0,
+        "rthByDate": {
+          "2026-10-22": 391,
+          "2026-10-23": 391,
+          "2026-10-26": 391,
+          "2026-10-27": 391,
+          "2026-10-28": 391,
+          "2026-10-29": 391,
+          "2026-10-30": 382,
+          "2026-11-02": 391,
+          "2026-11-03": 391,
+          "2026-11-04": 391,
+          "2026-11-05": 391,
+          "2026-11-06": 391,
+          "2026-11-09": 391,
+          "2026-11-10": 391,
+          "2026-11-11": 391
+        }
+      }
+    }
+  },
+  "inputs": [
+    {
+      "symbol": "MNQ=F",
+      "file": "study/mnq.csv",
+      "rows": 20416,
+      "sha256": "ac4b927152f3a8080053daf03ee4b0e04eab1da5e582e4dd127ebfb7e96d07fc"
+    },
+    {
+      "symbol": "MES=F",
+      "file": "study/mes.csv",
+      "rows": 20414,
+      "sha256": "ca089a3036927740e2229a1dcc8cae4864be02c2b53eaf493d838fd3b357e080"
+    }
+  ],
+  "engines": [
+    {
+      "file": "comparison-engine.mjs",
+      "sha256": "7244fbfa5e3e6d7fd53f66015048119774dfff4e1f23db09fc6c5d7e432c9e98"
+    },
+    {
+      "file": "engine.mjs",
+      "sha256": "72df844ca44a060b77471e0e57887ac25aae867ac8c3a2443a0648bf6cfc7044"
+    }
+  ],
+  "baseline": {
+    "config": {
+      "version": "comparison-1",
+      "evaluationDays": [
+        "2026-11-02",
+        "2026-11-03",
+        "2026-11-04",
+        "2026-11-05",
+        "2026-11-06",
+        "2026-11-09",
+        "2026-11-10",
+        "2026-11-11"
+      ],
+      "trainingDays": [
+        "2026-10-23",
+        "2026-10-26",
+        "2026-10-27",
+        "2026-10-28",
+        "2026-10-29"
+      ],
+      "risk": 100,
+      "maxContracts": 3,
+      "dailyLoss": 300,
+      "commission": 1.24,
+      "slipTicks": 1,
+      "start": "09:30",
+      "end": "11:30",
+      "flat": "16:00",
+      "openingRangeMinutes": 15,
+      "atrPeriod": 14,
+      "bandPeriod": 20,
+      "bandSigma": 2,
+      "flatSlopeATR": 0.25,
+      "pairLookback": 60,
+      "pairEntryZ": 2,
+      "pairExitZ": 0.5,
+      "pairMaxMinutes": 30
+    },
+    "hedge": {
+      "nqQty": 1,
+      "esQty": 2,
+      "meanMNQ": 29557.904859335038,
+      "meanMES": 7731.403452685422,
+      "observations": 1955,
+      "trainingDays": [
+        "2026-10-23",
+        "2026-10-26",
+        "2026-10-27",
+        "2026-10-28",
+        "2026-10-29"
+      ]
+    },
+    "results": [
+      {
+        "id": "fvg-a",
+        "name": "FVG / 5m inversion",
+        "family": "FVG",
+        "data": "MNQ OHLC",
+        "direction": "Short only",
+        "status": "Tested",
+        "rules": "Existing A+ model: completed five-minute bullish-gap inversion after a recent fifteen-minute bearish-gap touch. Next-open short; five-bar swing stop + 1 point; fixed 2R target. Original gap age and minimum size rules retained.",
+        "stats": {
+          "trades": 0,
+          "wins": 0,
+          "losses": 0,
+          "breakeven": 0,
+          "hitRate": null,
+          "hitInterval": null,
+          "net": 0,
+          "gross": 0,
+          "fees": 0,
+          "profitFactor": null,
+          "averageWinner": null,
+          "averageLoser": null,
+          "realizedPayoff": null,
+          "maxDrawdown": 0,
+          "expectancy": null
+        },
+        "trades": [],
+        "signals": [
+          {
+            "setup": "A",
+            "context": false,
+            "contextEvidence": null,
+            "gap": {
+              "lo": 28712.75,
+              "hi": 28793.25,
+              "born": 1793627100000,
+              "used": false
+            },
+            "swing": 28739.25,
+            "t": 1793630040000,
+            "status": "Missing context",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "Five-minute gap inversion",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "rejection": "No qualifying 15-minute bearish-gap context",
+            "model": "fvg-a",
+            "signalTime": 1793630040000,
+            "confirmedAt": 1793630100000,
+            "day": "2026-11-02"
+          },
+          {
+            "setup": "A",
+            "context": false,
+            "contextEvidence": null,
+            "gap": {
+              "lo": 28802.25,
+              "hi": 28834.25,
+              "born": 1793633400000,
+              "used": false
+            },
+            "swing": 28844.5,
+            "t": 1793634540000,
+            "status": "Missing context",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "Five-minute gap inversion",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "rejection": "No qualifying 15-minute bearish-gap context",
+            "model": "fvg-a",
+            "signalTime": 1793634540000,
+            "confirmedAt": 1793634600000,
+            "day": "2026-11-02"
+          },
+          {
+            "setup": "A",
+            "context": false,
+            "contextEvidence": null,
+            "gap": {
+              "lo": 28775,
+              "hi": 28786,
+              "born": 1793633100000,
+              "used": false
+            },
+            "swing": 28792.5,
+            "t": 1793634840000,
+            "status": "Missing context",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "Five-minute gap inversion",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "rejection": "No qualifying 15-minute bearish-gap context",
+            "model": "fvg-a",
+            "signalTime": 1793634840000,
+            "confirmedAt": 1793634900000,
+            "day": "2026-11-02"
+          },
+          {
+            "setup": "A",
+            "context": false,
+            "contextEvidence": null,
+            "gap": {
+              "lo": 28724,
+              "hi": 28750,
+              "born": 1793632800000,
+              "used": false
+            },
+            "swing": 28753.25,
+            "t": 1793635740000,
+            "status": "Missing context",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "Five-minute gap inversion",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "rejection": "No qualifying 15-minute bearish-gap context",
+            "model": "fvg-a",
+            "signalTime": 1793635740000,
+            "confirmedAt": 1793635800000,
+            "day": "2026-11-02"
+          },
+          {
+            "setup": "A",
+            "context": false,
+            "contextEvidence": {
+              "lo": 28183,
+              "hi": 28199.25,
+              "born": 1793708100000,
+              "touchedAt": 1793708400000
+            },
+            "gap": {
+              "lo": 28373.5,
+              "hi": 28402.5,
+              "born": 1793721900000,
+              "used": false
+            },
+            "swing": 28415.25,
+            "t": 1793722740000,
+            "status": "Missing context",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "Five-minute gap inversion",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "rejection": "No qualifying 15-minute bearish-gap context",
+            "model": "fvg-a",
+            "signalTime": 1793722740000,
+            "confirmedAt": 1793722800000,
+            "day": "2026-11-03"
+          },
+          {
+            "setup": "A",
+            "context": false,
+            "contextEvidence": {
+              "lo": 28441.75,
+              "hi": 28562.75,
+              "born": 1793795400000,
+              "touchedAt": 1793795880000
+            },
+            "gap": {
+              "lo": 28421.25,
+              "hi": 28439,
+              "born": 1793802300000,
+              "used": false
+            },
+            "swing": 28554.5,
+            "t": 1793802840000,
+            "status": "Missing context",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "Five-minute gap inversion",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "rejection": "No qualifying 15-minute bearish-gap context",
+            "model": "fvg-a",
+            "signalTime": 1793802840000,
+            "confirmedAt": 1793802900000,
+            "day": "2026-11-04"
+          },
+          {
+            "setup": "A",
+            "context": false,
+            "contextEvidence": {
+              "lo": 28441.75,
+              "hi": 28562.75,
+              "born": 1793795400000,
+              "touchedAt": 1793795880000
+            },
+            "gap": {
+              "lo": 28820,
+              "hi": 28834.75,
+              "born": 1793805000000,
+              "used": false
+            },
+            "swing": 28913.25,
+            "t": 1793805840000,
+            "status": "Missing context",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "Five-minute gap inversion",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "rejection": "No qualifying 15-minute bearish-gap context",
+            "model": "fvg-a",
+            "signalTime": 1793805840000,
+            "confirmedAt": 1793805900000,
+            "day": "2026-11-04"
+          },
+          {
+            "setup": "A",
+            "context": false,
+            "contextEvidence": {
+              "lo": 28441.75,
+              "hi": 28562.75,
+              "born": 1793795400000,
+              "touchedAt": 1793795880000
+            },
+            "gap": {
+              "lo": 28652.25,
+              "hi": 28770.25,
+              "born": 1793803800000,
+              "used": false
+            },
+            "swing": 28696.75,
+            "t": 1793807340000,
+            "status": "Missing context",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "Five-minute gap inversion",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "rejection": "No qualifying 15-minute bearish-gap context",
+            "model": "fvg-a",
+            "signalTime": 1793807340000,
+            "confirmedAt": 1793807400000,
+            "day": "2026-11-04"
+          },
+          {
+            "setup": "A",
+            "context": false,
+            "contextEvidence": {
+              "lo": 28441.75,
+              "hi": 28562.75,
+              "born": 1793795400000,
+              "touchedAt": 1793795880000
+            },
+            "gap": {
+              "lo": 28599.5,
+              "hi": 28601,
+              "born": 1793809200000,
+              "used": false
+            },
+            "swing": 28637.25,
+            "t": 1793809440000,
+            "status": "Missing context",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "Five-minute gap inversion",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "rejection": "No qualifying 15-minute bearish-gap context",
+            "model": "fvg-a",
+            "signalTime": 1793809440000,
+            "confirmedAt": 1793809500000,
+            "day": "2026-11-04"
+          },
+          {
+            "setup": "A",
+            "context": false,
+            "contextEvidence": {
+              "lo": 27141,
+              "hi": 27184.5,
+              "born": 1793960100000,
+              "touchedAt": 1793961900000
+            },
+            "gap": {
+              "lo": 27110.75,
+              "hi": 27142.75,
+              "born": 1793973300000,
+              "used": false
+            },
+            "swing": 27192.75,
+            "t": 1793975640000,
+            "status": "Missing context",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "Five-minute gap inversion",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "rejection": "No qualifying 15-minute bearish-gap context",
+            "model": "fvg-a",
+            "signalTime": 1793975640000,
+            "confirmedAt": 1793975700000,
+            "day": "2026-11-06"
+          },
+          {
+            "setup": "A",
+            "context": false,
+            "contextEvidence": {
+              "lo": 27141,
+              "hi": 27184.5,
+              "born": 1793960100000,
+              "touchedAt": 1793961900000
+            },
+            "gap": {
+              "lo": 27247.5,
+              "hi": 27267.5,
+              "born": 1793976600000,
+              "used": false
+            },
+            "swing": 27284.75,
+            "t": 1793977740000,
+            "status": "Missing context",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "Five-minute gap inversion",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "rejection": "No qualifying 15-minute bearish-gap context",
+            "model": "fvg-a",
+            "signalTime": 1793977740000,
+            "confirmedAt": 1793977800000,
+            "day": "2026-11-06"
+          },
+          {
+            "setup": "A",
+            "context": false,
+            "contextEvidence": {
+              "lo": 27141,
+              "hi": 27184.5,
+              "born": 1793960100000,
+              "touchedAt": 1793961900000
+            },
+            "gap": {
+              "lo": 27192.75,
+              "hi": 27199.75,
+              "born": 1793976300000,
+              "used": false
+            },
+            "swing": 27290,
+            "t": 1793978940000,
+            "status": "Missing context",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "Five-minute gap inversion",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "rejection": "No qualifying 15-minute bearish-gap context",
+            "model": "fvg-a",
+            "signalTime": 1793978940000,
+            "confirmedAt": 1793979000000,
+            "day": "2026-11-06"
+          },
+          {
+            "setup": "A",
+            "context": false,
+            "contextEvidence": {
+              "lo": 27141,
+              "hi": 27184.5,
+              "born": 1793960100000,
+              "touchedAt": 1793961900000
+            },
+            "gap": {
+              "lo": 27181.25,
+              "hi": 27235.25,
+              "born": 1793980500000,
+              "used": false
+            },
+            "swing": 27216.25,
+            "t": 1793981340000,
+            "status": "Missing context",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "Five-minute gap inversion",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "rejection": "No qualifying 15-minute bearish-gap context",
+            "model": "fvg-a",
+            "signalTime": 1793981340000,
+            "confirmedAt": 1793981400000,
+            "day": "2026-11-06"
+          },
+          {
+            "setup": "A",
+            "context": false,
+            "contextEvidence": {
+              "lo": 27009.25,
+              "hi": 27016.5,
+              "born": 1794210300000,
+              "touchedAt": 1794213060000
+            },
+            "gap": {
+              "lo": 27893.75,
+              "hi": 27935.25,
+              "born": 1794240000000,
+              "used": false
+            },
+            "swing": 27898.25,
+            "t": 1794241740000,
+            "status": "Missing context",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "Five-minute gap inversion",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "rejection": "No qualifying 15-minute bearish-gap context",
+            "model": "fvg-a",
+            "signalTime": 1794241740000,
+            "confirmedAt": 1794241800000,
+            "day": "2026-11-09"
+          },
+          {
+            "setup": "A",
+            "context": true,
+            "contextEvidence": {
+              "lo": 27745,
+              "hi": 27843,
+              "born": 1794319200000,
+              "touchedAt": 1794321840000
+            },
+            "gap": {
+              "lo": 27887.75,
+              "hi": 27993.5,
+              "born": 1794323100000,
+              "used": false
+            },
+            "swing": 27956,
+            "t": 1794325140000,
+            "status": "Filtered",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "Five-minute gap inversion",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": true
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "entry": 27870,
+            "stop": 27957,
+            "target": 27696,
+            "rr": 2,
+            "qty": 0,
+            "rejection": "One contract exceeds the risk budget",
+            "model": "fvg-a",
+            "signalTime": 1794325140000,
+            "confirmedAt": 1794325200000,
+            "day": "2026-11-10"
+          },
+          {
+            "setup": "A",
+            "context": false,
+            "contextEvidence": {
+              "lo": 27745,
+              "hi": 27843,
+              "born": 1794319200000,
+              "touchedAt": 1794321840000
+            },
+            "gap": {
+              "lo": 27859.25,
+              "hi": 27868.25,
+              "born": 1794322800000,
+              "used": false
+            },
+            "swing": 27885,
+            "t": 1794325440000,
+            "status": "Missing context",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "Five-minute gap inversion",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "rejection": "No qualifying 15-minute bearish-gap context",
+            "model": "fvg-a",
+            "signalTime": 1794325440000,
+            "confirmedAt": 1794325500000,
+            "day": "2026-11-10"
+          },
+          {
+            "setup": "A",
+            "context": true,
+            "contextEvidence": {
+              "lo": 28305.25,
+              "hi": 28347.25,
+              "born": 1794409200000,
+              "touchedAt": 1794410820000
+            },
+            "gap": {
+              "lo": 28467.25,
+              "hi": 28508.5,
+              "born": 1794412800000,
+              "used": false
+            },
+            "swing": 28521,
+            "t": 1794413340000,
+            "status": "Filtered",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "Five-minute gap inversion",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": true
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "entry": 28466.75,
+            "stop": 28522,
+            "target": 28356.25,
+            "rr": 2,
+            "qty": 0,
+            "rejection": "One contract exceeds the risk budget",
+            "model": "fvg-a",
+            "signalTime": 1794413340000,
+            "confirmedAt": 1794413400000,
+            "day": "2026-11-11"
+          }
+        ],
+        "daily": [
+          {
+            "day": "2026-11-02",
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": null,
+            "hitInterval": null,
+            "net": 0,
+            "gross": 0,
+            "fees": 0,
+            "profitFactor": null,
+            "averageWinner": null,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": null,
+            "signals": 4
+          },
+          {
+            "day": "2026-11-03",
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": null,
+            "hitInterval": null,
+            "net": 0,
+            "gross": 0,
+            "fees": 0,
+            "profitFactor": null,
+            "averageWinner": null,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": null,
+            "signals": 1
+          },
+          {
+            "day": "2026-11-04",
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": null,
+            "hitInterval": null,
+            "net": 0,
+            "gross": 0,
+            "fees": 0,
+            "profitFactor": null,
+            "averageWinner": null,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": null,
+            "signals": 4
+          },
+          {
+            "day": "2026-11-05",
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": null,
+            "hitInterval": null,
+            "net": 0,
+            "gross": 0,
+            "fees": 0,
+            "profitFactor": null,
+            "averageWinner": null,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": null,
+            "signals": 0
+          },
+          {
+            "day": "2026-11-06",
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": null,
+            "hitInterval": null,
+            "net": 0,
+            "gross": 0,
+            "fees": 0,
+            "profitFactor": null,
+            "averageWinner": null,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": null,
+            "signals": 4
+          },
+          {
+            "day": "2026-11-09",
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": null,
+            "hitInterval": null,
+            "net": 0,
+            "gross": 0,
+            "fees": 0,
+            "profitFactor": null,
+            "averageWinner": null,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": null,
+            "signals": 1
+          },
+          {
+            "day": "2026-11-10",
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": null,
+            "hitInterval": null,
+            "net": 0,
+            "gross": 0,
+            "fees": 0,
+            "profitFactor": null,
+            "averageWinner": null,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": null,
+            "signals": 2
+          },
+          {
+            "day": "2026-11-11",
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": null,
+            "hitInterval": null,
+            "net": 0,
+            "gross": 0,
+            "fees": 0,
+            "profitFactor": null,
+            "averageWinner": null,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": null,
+            "signals": 1
+          }
+        ]
+      },
+      {
+        "id": "fvg-b",
+        "name": "FVG / 1m continuation",
+        "family": "FVG",
+        "data": "MNQ OHLC",
+        "direction": "Short only",
+        "status": "Tested",
+        "rules": "Existing B model: one-minute bearish gap ≥ 1 point with a middle-candle bearish body ≥ 8 points, then a bearish retest. Next-open short; five-bar swing stop + 1 point; fixed 2R target.",
+        "stats": {
+          "trades": 10,
+          "wins": 4,
+          "losses": 6,
+          "breakeven": 0,
+          "hitRate": 40,
+          "hitInterval": [
+            16.818032970623616,
+            68.73262302663417
+          ],
+          "net": 75.40000000000003,
+          "gross": 94,
+          "fees": 18.599999999999973,
+          "profitFactor": 1.1626121463077983,
+          "averageWinner": 134.76999999999998,
+          "averageLoser": 77.28,
+          "realizedPayoff": 1.7439182194616976,
+          "maxDrawdown": 336.2,
+          "expectancy": 7.540000000000004
+        },
+        "trades": [
+          {
+            "entry": 28814.75,
+            "stop": 28848,
+            "target": 28748.25,
+            "qty": 1,
+            "entryTime": 1793634060000,
+            "setup": "B",
+            "grade": "Research candidate",
+            "signalTime": 1793634000000,
+            "risk": 68.24,
+            "exit": 28848.25,
+            "exitTime": 1793634180000,
+            "pnl": -68.24,
+            "gross": -67,
+            "reason": "Stop",
+            "model": "fvg-b",
+            "side": -1,
+            "day": "2026-11-02",
+            "fees": 1.2399999999999949,
+            "confirmedAt": 1793634060000
+          },
+          {
+            "entry": 28736.25,
+            "stop": 28757,
+            "target": 28694.75,
+            "qty": 2,
+            "entryTime": 1793635740000,
+            "setup": "B",
+            "grade": "Research candidate",
+            "signalTime": 1793635680000,
+            "risk": 86.48,
+            "exit": 28694.75,
+            "exitTime": 1793635800000,
+            "pnl": 163.52,
+            "gross": 166,
+            "reason": "Target",
+            "model": "fvg-b",
+            "side": -1,
+            "day": "2026-11-02",
+            "fees": 2.4799999999999898,
+            "confirmedAt": 1793635740000
+          },
+          {
+            "entry": 28662,
+            "stop": 28694.25,
+            "target": 28597.5,
+            "qty": 1,
+            "entryTime": 1793636820000,
+            "setup": "B",
+            "grade": "Research candidate",
+            "signalTime": 1793636760000,
+            "risk": 66.24,
+            "exit": 28694.5,
+            "exitTime": 1793637180000,
+            "pnl": -66.24,
+            "gross": -65,
+            "reason": "Stop",
+            "model": "fvg-b",
+            "side": -1,
+            "day": "2026-11-02",
+            "fees": 1.2399999999999949,
+            "confirmedAt": 1793636820000
+          },
+          {
+            "entry": 28303.75,
+            "stop": 28325,
+            "target": 28261.25,
+            "qty": 2,
+            "entryTime": 1793720220000,
+            "setup": "B",
+            "grade": "Research candidate",
+            "signalTime": 1793720160000,
+            "risk": 88.48,
+            "exit": 28325.25,
+            "exitTime": 1793720220000,
+            "pnl": -88.48,
+            "gross": -86,
+            "reason": "Stop",
+            "model": "fvg-b",
+            "side": -1,
+            "day": "2026-11-03",
+            "fees": 2.480000000000004,
+            "confirmedAt": 1793720220000
+          },
+          {
+            "entry": 28357.75,
+            "stop": 28405,
+            "target": 28263.25,
+            "qty": 1,
+            "entryTime": 1793722860000,
+            "setup": "B",
+            "grade": "Research candidate",
+            "signalTime": 1793722800000,
+            "risk": 96.24,
+            "exit": 28405.25,
+            "exitTime": 1793729160000,
+            "pnl": -96.24,
+            "gross": -95,
+            "reason": "Stop",
+            "model": "fvg-b",
+            "side": -1,
+            "day": "2026-11-03",
+            "fees": 1.2399999999999949,
+            "confirmedAt": 1793722860000
+          },
+          {
+            "entry": 27196.5,
+            "stop": 27238.25,
+            "target": 27113,
+            "qty": 1,
+            "entryTime": 1793980080000,
+            "setup": "B",
+            "grade": "Research candidate",
+            "signalTime": 1793980020000,
+            "risk": 85.24,
+            "exit": 27238.5,
+            "exitTime": 1793980140000,
+            "pnl": -85.24,
+            "gross": -84,
+            "reason": "Stop",
+            "model": "fvg-b",
+            "side": -1,
+            "day": "2026-11-06",
+            "fees": 1.2399999999999949,
+            "confirmedAt": 1793980080000
+          },
+          {
+            "entry": 27248,
+            "stop": 27281.25,
+            "target": 27181.5,
+            "qty": 1,
+            "entryTime": 1793980740000,
+            "setup": "B",
+            "grade": "Research candidate",
+            "signalTime": 1793980680000,
+            "risk": 68.24,
+            "exit": 27181.5,
+            "exitTime": 1793980800000,
+            "pnl": 131.76,
+            "gross": 133,
+            "reason": "Target",
+            "model": "fvg-b",
+            "side": -1,
+            "day": "2026-11-06",
+            "fees": 1.240000000000009,
+            "confirmedAt": 1793980740000
+          },
+          {
+            "entry": 27755.25,
+            "stop": 27784,
+            "target": 27697.75,
+            "qty": 1,
+            "entryTime": 1794326340000,
+            "setup": "B",
+            "grade": "Research candidate",
+            "signalTime": 1794326280000,
+            "risk": 59.24,
+            "exit": 27784.25,
+            "exitTime": 1794326400000,
+            "pnl": -59.24,
+            "gross": -58,
+            "reason": "Stop",
+            "model": "fvg-b",
+            "side": -1,
+            "day": "2026-11-10",
+            "fees": 1.240000000000002,
+            "confirmedAt": 1794326340000
+          },
+          {
+            "entry": 28356.25,
+            "stop": 28376.25,
+            "target": 28316.25,
+            "qty": 2,
+            "entryTime": 1794408000000,
+            "setup": "B",
+            "grade": "Research candidate",
+            "signalTime": 1794407940000,
+            "risk": 83.48,
+            "exit": 28316.25,
+            "exitTime": 1794408060000,
+            "pnl": 157.52,
+            "gross": 160,
+            "reason": "Target",
+            "model": "fvg-b",
+            "side": -1,
+            "day": "2026-11-11",
+            "fees": 2.4799999999999898,
+            "confirmedAt": 1794408000000
+          },
+          {
+            "entry": 28500.5,
+            "stop": 28508,
+            "target": 28485.5,
+            "qty": 3,
+            "entryTime": 1794413700000,
+            "setup": "B",
+            "grade": "Research candidate",
+            "signalTime": 1794413640000,
+            "risk": 50.22,
+            "exit": 28485.5,
+            "exitTime": 1794413700000,
+            "pnl": 86.28,
+            "gross": 90,
+            "reason": "Target",
+            "model": "fvg-b",
+            "side": -1,
+            "day": "2026-11-11",
+            "fees": 3.719999999999999,
+            "confirmedAt": 1794413700000
+          }
+        ],
+        "signals": [
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 28851.25,
+              "hi": 28877.5,
+              "born": 1793633520000,
+              "used": true
+            },
+            "swing": 28891.5,
+            "t": 1793633520000,
+            "status": "Filtered",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "entry": 28832.5,
+            "stop": 28892.5,
+            "target": 28712.5,
+            "rr": 2,
+            "qty": 0,
+            "rejection": "One contract exceeds the risk budget",
+            "model": "fvg-b",
+            "signalTime": 1793633520000,
+            "confirmedAt": 1793633580000,
+            "day": "2026-11-02"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 28820.75,
+              "hi": 28832,
+              "born": 1793634000000,
+              "used": true
+            },
+            "swing": 28847,
+            "t": 1793634000000,
+            "status": "Simulated",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": true
+              }
+            ],
+            "liquidity": false,
+            "entry": 28814.75,
+            "stop": 28848,
+            "target": 28748.25,
+            "rr": 2,
+            "qty": 1,
+            "model": "fvg-b",
+            "signalTime": 1793634000000,
+            "confirmedAt": 1793634060000,
+            "day": "2026-11-02"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 28742.5,
+              "hi": 28752.75,
+              "born": 1793635080000,
+              "used": true
+            },
+            "swing": 28756,
+            "t": 1793635680000,
+            "status": "Simulated",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": true
+              }
+            ],
+            "liquidity": false,
+            "entry": 28736.25,
+            "stop": 28757,
+            "target": 28694.75,
+            "rr": 2,
+            "qty": 2,
+            "model": "fvg-b",
+            "signalTime": 1793635680000,
+            "confirmedAt": 1793635740000,
+            "day": "2026-11-02"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 28665,
+              "hi": 28672.5,
+              "born": 1793636700000,
+              "used": true
+            },
+            "swing": 28693.25,
+            "t": 1793636760000,
+            "status": "Simulated",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": true
+              }
+            ],
+            "liquidity": false,
+            "entry": 28662,
+            "stop": 28694.25,
+            "target": 28597.5,
+            "rr": 2,
+            "qty": 1,
+            "model": "fvg-b",
+            "signalTime": 1793636760000,
+            "confirmedAt": 1793636820000,
+            "day": "2026-11-02"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 28351.25,
+              "hi": 28361.75,
+              "born": 1793717280000,
+              "used": true
+            },
+            "swing": 28370.25,
+            "t": 1793717400000,
+            "status": "Filtered",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "entry": 28319,
+            "stop": 28371.25,
+            "target": 28214.5,
+            "rr": 2,
+            "qty": 0,
+            "rejection": "One contract exceeds the risk budget",
+            "model": "fvg-b",
+            "signalTime": 1793717400000,
+            "confirmedAt": 1793717460000,
+            "day": "2026-11-03"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 28326.75,
+              "hi": 28332.5,
+              "born": 1793717520000,
+              "used": true
+            },
+            "swing": 28358.25,
+            "t": 1793717580000,
+            "status": "Filtered",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "entry": 28285,
+            "stop": 28359.25,
+            "target": 28136.5,
+            "rr": 2,
+            "qty": 0,
+            "rejection": "One contract exceeds the risk budget",
+            "model": "fvg-b",
+            "signalTime": 1793717580000,
+            "confirmedAt": 1793717640000,
+            "day": "2026-11-03"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 28290,
+              "hi": 28311,
+              "born": 1793717700000,
+              "used": true
+            },
+            "swing": 28327.5,
+            "t": 1793717820000,
+            "status": "Filtered",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "entry": 28275.25,
+            "stop": 28328.5,
+            "target": 28168.75,
+            "rr": 2,
+            "qty": 0,
+            "rejection": "One contract exceeds the risk budget",
+            "model": "fvg-b",
+            "signalTime": 1793717820000,
+            "confirmedAt": 1793717880000,
+            "day": "2026-11-03"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 28319,
+              "hi": 28324.75,
+              "born": 1793719980000,
+              "used": true
+            },
+            "swing": 28324,
+            "t": 1793720160000,
+            "status": "Simulated",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": true
+              }
+            ],
+            "liquidity": false,
+            "entry": 28303.75,
+            "stop": 28325,
+            "target": 28261.25,
+            "rr": 2,
+            "qty": 2,
+            "model": "fvg-b",
+            "signalTime": 1793720160000,
+            "confirmedAt": 1793720220000,
+            "day": "2026-11-03"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 28376.75,
+              "hi": 28380,
+              "born": 1793722740000,
+              "used": true
+            },
+            "swing": 28404,
+            "t": 1793722800000,
+            "status": "Simulated",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": true
+              }
+            ],
+            "liquidity": false,
+            "entry": 28357.75,
+            "stop": 28405,
+            "target": 28263.25,
+            "rr": 2,
+            "qty": 1,
+            "model": "fvg-b",
+            "signalTime": 1793722800000,
+            "confirmedAt": 1793722860000,
+            "day": "2026-11-03"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 28576,
+              "hi": 28585.75,
+              "born": 1793809380000,
+              "used": true
+            },
+            "swing": 28655.25,
+            "t": 1793809380000,
+            "status": "Filtered",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "entry": 28544.25,
+            "stop": 28656.25,
+            "target": 28320.25,
+            "rr": 2,
+            "qty": 0,
+            "rejection": "One contract exceeds the risk budget",
+            "model": "fvg-b",
+            "signalTime": 1793809380000,
+            "confirmedAt": 1793809440000,
+            "day": "2026-11-04"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 27803.25,
+              "hi": 27851.75,
+              "born": 1793889720000,
+              "used": true
+            },
+            "swing": 27921,
+            "t": 1793889780000,
+            "status": "Filtered",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "entry": 27744.25,
+            "stop": 27922,
+            "target": 27388.75,
+            "rr": 2,
+            "qty": 0,
+            "rejection": "One contract exceeds the risk budget",
+            "model": "fvg-b",
+            "signalTime": 1793889780000,
+            "confirmedAt": 1793889840000,
+            "day": "2026-11-05"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 27669.75,
+              "hi": 27692.75,
+              "born": 1793890140000,
+              "used": true
+            },
+            "swing": 27728.5,
+            "t": 1793890200000,
+            "status": "Filtered",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "entry": 27648.5,
+            "stop": 27729.5,
+            "target": 27486.5,
+            "rr": 2,
+            "qty": 0,
+            "rejection": "One contract exceeds the risk budget",
+            "model": "fvg-b",
+            "signalTime": 1793890200000,
+            "confirmedAt": 1793890260000,
+            "day": "2026-11-05"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 27626.25,
+              "hi": 27637.75,
+              "born": 1793890380000,
+              "used": true
+            },
+            "swing": 27716.25,
+            "t": 1793890440000,
+            "status": "Filtered",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "entry": 27572.25,
+            "stop": 27717.25,
+            "target": 27282.25,
+            "rr": 2,
+            "qty": 0,
+            "rejection": "One contract exceeds the risk budget",
+            "model": "fvg-b",
+            "signalTime": 1793890440000,
+            "confirmedAt": 1793890500000,
+            "day": "2026-11-05"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 27576.75,
+              "hi": 27585.5,
+              "born": 1793890560000,
+              "used": true
+            },
+            "swing": 27587.75,
+            "t": 1793890800000,
+            "status": "Filtered",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "entry": 27525.5,
+            "stop": 27588.75,
+            "target": 27399,
+            "rr": 2,
+            "qty": 0,
+            "rejection": "One contract exceeds the risk budget",
+            "model": "fvg-b",
+            "signalTime": 1793890800000,
+            "confirmedAt": 1793890860000,
+            "day": "2026-11-05"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 27532,
+              "hi": 27571.5,
+              "born": 1793890620000,
+              "used": true
+            },
+            "swing": 27587.75,
+            "t": 1793890860000,
+            "status": "Filtered",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "entry": 27458.25,
+            "stop": 27588.75,
+            "target": 27197.25,
+            "rr": 2,
+            "qty": 0,
+            "rejection": "One contract exceeds the risk budget",
+            "model": "fvg-b",
+            "signalTime": 1793890860000,
+            "confirmedAt": 1793890920000,
+            "day": "2026-11-05"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 27485.75,
+              "hi": 27518.25,
+              "born": 1793890980000,
+              "used": true
+            },
+            "swing": 27587.75,
+            "t": 1793890980000,
+            "status": "Filtered",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "entry": 27464.5,
+            "stop": 27588.75,
+            "target": 27216,
+            "rr": 2,
+            "qty": 0,
+            "rejection": "One contract exceeds the risk budget",
+            "model": "fvg-b",
+            "signalTime": 1793890980000,
+            "confirmedAt": 1793891040000,
+            "day": "2026-11-05"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 27352.75,
+              "hi": 27401.5,
+              "born": 1793891520000,
+              "used": true
+            },
+            "swing": 27468.25,
+            "t": 1793891580000,
+            "status": "Filtered",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "entry": 27326.25,
+            "stop": 27469.25,
+            "target": 27040.25,
+            "rr": 2,
+            "qty": 0,
+            "rejection": "One contract exceeds the risk budget",
+            "model": "fvg-b",
+            "signalTime": 1793891580000,
+            "confirmedAt": 1793891640000,
+            "day": "2026-11-05"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 27035.5,
+              "hi": 27108.5,
+              "born": 1793893620000,
+              "used": true
+            },
+            "swing": 27143,
+            "t": 1793893740000,
+            "status": "Filtered",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "entry": 27011.25,
+            "stop": 27144,
+            "target": 26745.75,
+            "rr": 2,
+            "qty": 0,
+            "rejection": "One contract exceeds the risk budget",
+            "model": "fvg-b",
+            "signalTime": 1793893740000,
+            "confirmedAt": 1793893800000,
+            "day": "2026-11-05"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 27357,
+              "hi": 27378.25,
+              "born": 1793976960000,
+              "used": true
+            },
+            "swing": 27382.25,
+            "t": 1793977260000,
+            "status": "Filtered",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "entry": 27298.25,
+            "stop": 27383.25,
+            "target": 27128.25,
+            "rr": 2,
+            "qty": 0,
+            "rejection": "One contract exceeds the risk budget",
+            "model": "fvg-b",
+            "signalTime": 1793977260000,
+            "confirmedAt": 1793977320000,
+            "day": "2026-11-06"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 27313.75,
+              "hi": 27324.5,
+              "born": 1793977380000,
+              "used": true
+            },
+            "swing": 27314.25,
+            "t": 1793978460000,
+            "status": "Filtered",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "entry": 27246,
+            "stop": 27315.25,
+            "target": 27107.5,
+            "rr": 2,
+            "qty": 0,
+            "rejection": "One contract exceeds the risk budget",
+            "model": "fvg-b",
+            "signalTime": 1793978460000,
+            "confirmedAt": 1793978520000,
+            "day": "2026-11-06"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 27135,
+              "hi": 27151,
+              "born": 1793979120000,
+              "used": true
+            },
+            "swing": 27178.75,
+            "t": 1793979180000,
+            "status": "Filtered",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "entry": 27119.5,
+            "stop": 27179.75,
+            "target": 26999,
+            "rr": 2,
+            "qty": 0,
+            "rejection": "One contract exceeds the risk budget",
+            "model": "fvg-b",
+            "signalTime": 1793979180000,
+            "confirmedAt": 1793979240000,
+            "day": "2026-11-06"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 27220.25,
+              "hi": 27231.75,
+              "born": 1793978940000,
+              "used": true
+            },
+            "swing": 27237.25,
+            "t": 1793980020000,
+            "status": "Simulated",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": true
+              }
+            ],
+            "liquidity": false,
+            "entry": 27196.5,
+            "stop": 27238.25,
+            "target": 27113,
+            "rr": 2,
+            "qty": 1,
+            "model": "fvg-b",
+            "signalTime": 1793980020000,
+            "confirmedAt": 1793980080000,
+            "day": "2026-11-06"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 27275.5,
+              "hi": 27277.75,
+              "born": 1793980500000,
+              "used": true
+            },
+            "swing": 27280.25,
+            "t": 1793980680000,
+            "status": "Simulated",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": true
+              }
+            ],
+            "liquidity": false,
+            "entry": 27248,
+            "stop": 27281.25,
+            "target": 27181.5,
+            "rr": 2,
+            "qty": 1,
+            "model": "fvg-b",
+            "signalTime": 1793980680000,
+            "confirmedAt": 1793980740000,
+            "day": "2026-11-06"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 27206.25,
+              "hi": 27224.75,
+              "born": 1793980920000,
+              "used": true
+            },
+            "swing": 27255,
+            "t": 1793980980000,
+            "status": "Filtered",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "entry": 27183.5,
+            "stop": 27256,
+            "target": 27038.5,
+            "rr": 2,
+            "qty": 0,
+            "rejection": "One contract exceeds the risk budget",
+            "model": "fvg-b",
+            "signalTime": 1793980980000,
+            "confirmedAt": 1793981040000,
+            "day": "2026-11-06"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 27129.5,
+              "hi": 27145.25,
+              "born": 1793981940000,
+              "used": true
+            },
+            "swing": 27168.75,
+            "t": 1793982000000,
+            "status": "Filtered",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "entry": 27117,
+            "stop": 27169.75,
+            "target": 27011.5,
+            "rr": 2,
+            "qty": 0,
+            "rejection": "One contract exceeds the risk budget",
+            "model": "fvg-b",
+            "signalTime": 1793982000000,
+            "confirmedAt": 1793982060000,
+            "day": "2026-11-06"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 27954.5,
+              "hi": 27985.75,
+              "born": 1794240360000,
+              "used": true
+            },
+            "swing": 27991,
+            "t": 1794240480000,
+            "status": "Filtered",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "entry": 27939,
+            "stop": 27992,
+            "target": 27833,
+            "rr": 2,
+            "qty": 0,
+            "rejection": "One contract exceeds the risk budget",
+            "model": "fvg-b",
+            "signalTime": 1794240480000,
+            "confirmedAt": 1794240540000,
+            "day": "2026-11-09"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 27703.5,
+              "hi": 27734.25,
+              "born": 1794321120000,
+              "used": true
+            },
+            "swing": 27788,
+            "t": 1794321120000,
+            "status": "Filtered",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "entry": 27669.5,
+            "stop": 27789,
+            "target": 27430.5,
+            "rr": 2,
+            "qty": 0,
+            "rejection": "One contract exceeds the risk budget",
+            "model": "fvg-b",
+            "signalTime": 1794321120000,
+            "confirmedAt": 1794321180000,
+            "day": "2026-11-10"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 28018.75,
+              "hi": 28023.75,
+              "born": 1794323580000,
+              "used": true
+            },
+            "swing": 28041.25,
+            "t": 1794323700000,
+            "status": "Filtered",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "entry": 27978.25,
+            "stop": 28042.25,
+            "target": 27850.25,
+            "rr": 2,
+            "qty": 0,
+            "rejection": "One contract exceeds the risk budget",
+            "model": "fvg-b",
+            "signalTime": 1794323700000,
+            "confirmedAt": 1794323760000,
+            "day": "2026-11-10"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 27993.75,
+              "hi": 27999,
+              "born": 1794323820000,
+              "used": true
+            },
+            "swing": 28034.75,
+            "t": 1794323820000,
+            "status": "Filtered",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "entry": 27973,
+            "stop": 28035.75,
+            "target": 27847.5,
+            "rr": 2,
+            "qty": 0,
+            "rejection": "One contract exceeds the risk budget",
+            "model": "fvg-b",
+            "signalTime": 1794323820000,
+            "confirmedAt": 1794323880000,
+            "day": "2026-11-10"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 27926.5,
+              "hi": 27960,
+              "born": 1794324300000,
+              "used": true
+            },
+            "swing": 27993.25,
+            "t": 1794324360000,
+            "status": "Filtered",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "entry": 27927.25,
+            "stop": 27994.25,
+            "target": 27793.25,
+            "rr": 2,
+            "qty": 0,
+            "rejection": "One contract exceeds the risk budget",
+            "model": "fvg-b",
+            "signalTime": 1794324360000,
+            "confirmedAt": 1794324420000,
+            "day": "2026-11-10"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 27893,
+              "hi": 27896.25,
+              "born": 1794325140000,
+              "used": true
+            },
+            "swing": 27956,
+            "t": 1794325140000,
+            "status": "Filtered",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "entry": 27870,
+            "stop": 27957,
+            "target": 27696,
+            "rr": 2,
+            "qty": 0,
+            "rejection": "One contract exceeds the risk budget",
+            "model": "fvg-b",
+            "signalTime": 1794325140000,
+            "confirmedAt": 1794325200000,
+            "day": "2026-11-10"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 27816.25,
+              "hi": 27827.5,
+              "born": 1794325560000,
+              "used": true
+            },
+            "swing": 27865.5,
+            "t": 1794325560000,
+            "status": "Filtered",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "entry": 27790,
+            "stop": 27866.5,
+            "target": 27637,
+            "rr": 2,
+            "qty": 0,
+            "rejection": "One contract exceeds the risk budget",
+            "model": "fvg-b",
+            "signalTime": 1794325560000,
+            "confirmedAt": 1794325620000,
+            "day": "2026-11-10"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 27762.25,
+              "hi": 27772.25,
+              "born": 1794325920000,
+              "used": true
+            },
+            "swing": 27783,
+            "t": 1794326280000,
+            "status": "Simulated",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": true
+              }
+            ],
+            "liquidity": false,
+            "entry": 27755.25,
+            "stop": 27784,
+            "target": 27697.75,
+            "rr": 2,
+            "qty": 1,
+            "model": "fvg-b",
+            "signalTime": 1794326280000,
+            "confirmedAt": 1794326340000,
+            "day": "2026-11-10"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 28351.75,
+              "hi": 28385.5,
+              "born": 1794407760000,
+              "used": true
+            },
+            "swing": 28375.25,
+            "t": 1794407940000,
+            "status": "Simulated",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": true
+              }
+            ],
+            "liquidity": false,
+            "entry": 28356.25,
+            "stop": 28376.25,
+            "target": 28316.25,
+            "rr": 2,
+            "qty": 2,
+            "model": "fvg-b",
+            "signalTime": 1794407940000,
+            "confirmedAt": 1794408000000,
+            "day": "2026-11-11"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 28304.75,
+              "hi": 28326,
+              "born": 1794409860000,
+              "used": true
+            },
+            "swing": 28347.5,
+            "t": 1794409920000,
+            "status": "Filtered",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": false
+              }
+            ],
+            "liquidity": false,
+            "entry": 28293.25,
+            "stop": 28348.5,
+            "target": 28182.75,
+            "rr": 2,
+            "qty": 0,
+            "rejection": "One contract exceeds the risk budget",
+            "model": "fvg-b",
+            "signalTime": 1794409920000,
+            "confirmedAt": 1794409980000,
+            "day": "2026-11-11"
+          },
+          {
+            "setup": "B",
+            "context": false,
+            "gap": {
+              "lo": 28502.75,
+              "hi": 28515.75,
+              "born": 1794413220000,
+              "used": true
+            },
+            "swing": 28507,
+            "t": 1794413640000,
+            "status": "Simulated",
+            "grade": "Research candidate",
+            "checks": [
+              {
+                "label": "Completed candle signal",
+                "pass": true
+              },
+              {
+                "label": "One-minute bearish gap retest",
+                "pass": true
+              },
+              {
+                "label": "15-minute bearish gap context",
+                "pass": false
+              },
+              {
+                "label": "Liquidity target supplied",
+                "pass": false
+              },
+              {
+                "label": "Reward / risk ≥ 2",
+                "pass": true
+              },
+              {
+                "label": "Size fits risk limits",
+                "pass": true
+              }
+            ],
+            "liquidity": false,
+            "entry": 28500.5,
+            "stop": 28508,
+            "target": 28485.5,
+            "rr": 2,
+            "qty": 3,
+            "model": "fvg-b",
+            "signalTime": 1794413640000,
+            "confirmedAt": 1794413700000,
+            "day": "2026-11-11"
+          }
+        ],
+        "daily": [
+          {
+            "day": "2026-11-02",
+            "trades": 3,
+            "wins": 1,
+            "losses": 2,
+            "breakeven": 0,
+            "hitRate": 33.33333333333333,
+            "hitInterval": [
+              6.149194472039621,
+              79.23403991979522
+            ],
+            "net": 29.04000000000002,
+            "gross": 34,
+            "fees": 4.9599999999999795,
+            "profitFactor": 1.2159428911362287,
+            "averageWinner": 163.52,
+            "averageLoser": 67.24,
+            "realizedPayoff": 2.4318857822724573,
+            "maxDrawdown": 68.24,
+            "expectancy": 9.680000000000007,
+            "signals": 4
+          },
+          {
+            "day": "2026-11-03",
+            "trades": 2,
+            "wins": 0,
+            "losses": 2,
+            "breakeven": 0,
+            "hitRate": 0,
+            "hitInterval": [
+              0,
+              65.76197724933469
+            ],
+            "net": -184.72,
+            "gross": -181,
+            "fees": 3.719999999999999,
+            "profitFactor": 0,
+            "averageWinner": null,
+            "averageLoser": 92.36,
+            "realizedPayoff": null,
+            "maxDrawdown": 184.72,
+            "expectancy": -92.36,
+            "signals": 5
+          },
+          {
+            "day": "2026-11-04",
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": null,
+            "hitInterval": null,
+            "net": 0,
+            "gross": 0,
+            "fees": 0,
+            "profitFactor": null,
+            "averageWinner": null,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": null,
+            "signals": 1
+          },
+          {
+            "day": "2026-11-05",
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": null,
+            "hitInterval": null,
+            "net": 0,
+            "gross": 0,
+            "fees": 0,
+            "profitFactor": null,
+            "averageWinner": null,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": null,
+            "signals": 8
+          },
+          {
+            "day": "2026-11-06",
+            "trades": 2,
+            "wins": 1,
+            "losses": 1,
+            "breakeven": 0,
+            "hitRate": 50,
+            "hitInterval": [
+              9.453120573423075,
+              90.54687942657694
+            ],
+            "net": 46.519999999999996,
+            "gross": 49,
+            "fees": 2.480000000000004,
+            "profitFactor": 1.5457531675269827,
+            "averageWinner": 131.76,
+            "averageLoser": 85.24,
+            "realizedPayoff": 1.5457531675269827,
+            "maxDrawdown": 85.24,
+            "expectancy": 23.259999999999998,
+            "signals": 7
+          },
+          {
+            "day": "2026-11-09",
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": null,
+            "hitInterval": null,
+            "net": 0,
+            "gross": 0,
+            "fees": 0,
+            "profitFactor": null,
+            "averageWinner": null,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": null,
+            "signals": 1
+          },
+          {
+            "day": "2026-11-10",
+            "trades": 1,
+            "wins": 0,
+            "losses": 1,
+            "breakeven": 0,
+            "hitRate": 0,
+            "hitInterval": [
+              0,
+              79.34506856227625
+            ],
+            "net": -59.24,
+            "gross": -58,
+            "fees": 1.240000000000002,
+            "profitFactor": 0,
+            "averageWinner": null,
+            "averageLoser": 59.24,
+            "realizedPayoff": null,
+            "maxDrawdown": 59.24,
+            "expectancy": -59.24,
+            "signals": 7
+          },
+          {
+            "day": "2026-11-11",
+            "trades": 2,
+            "wins": 2,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": 100,
+            "hitInterval": [
+              34.2380227506653,
+              100
+            ],
+            "net": 243.8,
+            "gross": 250,
+            "fees": 6.199999999999989,
+            "profitFactor": null,
+            "averageWinner": 121.9,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": 121.9,
+            "signals": 3
+          }
+        ]
+      },
+      {
+        "id": "orb",
+        "name": "Opening range breakout",
+        "family": "Breakout",
+        "data": "MNQ OHLC",
+        "direction": "Long / short",
+        "status": "Tested",
+        "rules": "Freeze the 09:30–09:44 range. First completed close ≥ 1 point above its high or below its low after 09:45. Enter next open, stop one ATR(14) from signal close, target 2R. One signal attempt per session.",
+        "stats": {
+          "trades": 2,
+          "wins": 1,
+          "losses": 1,
+          "breakeven": 0,
+          "hitRate": 50,
+          "hitInterval": [
+            9.453120573423075,
+            90.54687942657694
+          ],
+          "net": 64.02000000000001,
+          "gross": 66.5,
+          "fees": 2.48,
+          "profitFactor": 2.1485468245425188,
+          "averageWinner": 119.76,
+          "averageLoser": 55.74,
+          "realizedPayoff": 2.1485468245425188,
+          "maxDrawdown": 55.739999999999995,
+          "expectancy": 32.010000000000005
+        },
+        "trades": [
+          {
+            "model": "orb",
+            "signalTime": 1793632380000,
+            "confirmedAt": 1793632440000,
+            "day": "2026-11-02",
+            "status": "Simulated",
+            "side": 1,
+            "stop": 28727.25,
+            "context": {
+              "rangeHigh": 28748.75,
+              "rangeLow": 28639.75,
+              "atr": 29.285714285714285
+            },
+            "entry": 28757.5,
+            "target": 28818,
+            "qty": 1,
+            "plannedR": 2,
+            "entryTime": 1793632440000,
+            "risk": 62.24,
+            "exit": 28818,
+            "exitTime": 1793632860000,
+            "reason": "Target",
+            "gross": 121,
+            "fees": 1.24,
+            "pnl": 119.76
+          },
+          {
+            "model": "orb",
+            "signalTime": 1793720580000,
+            "confirmedAt": 1793720640000,
+            "day": "2026-11-03",
+            "status": "Simulated",
+            "side": 1,
+            "stop": 28355.25,
+            "context": {
+              "rangeHigh": 28372.75,
+              "rangeLow": 28213,
+              "atr": 25.785714285714285
+            },
+            "entry": 28382.25,
+            "target": 28436.25,
+            "qty": 1,
+            "plannedR": 2,
+            "entryTime": 1793720640000,
+            "risk": 55.74,
+            "exit": 28355,
+            "exitTime": 1793720640000,
+            "reason": "Stop",
+            "gross": -54.5,
+            "fees": 1.24,
+            "pnl": -55.74
+          }
+        ],
+        "signals": [
+          {
+            "model": "orb",
+            "signalTime": 1793632380000,
+            "confirmedAt": 1793632440000,
+            "day": "2026-11-02",
+            "status": "Simulated",
+            "side": 1,
+            "stop": 28727.25,
+            "context": {
+              "rangeHigh": 28748.75,
+              "rangeLow": 28639.75,
+              "atr": 29.285714285714285
+            },
+            "entry": 28757.5,
+            "target": 28818,
+            "qty": 1,
+            "plannedR": 2,
+            "entryTime": 1793632440000,
+            "risk": 62.24
+          },
+          {
+            "model": "orb",
+            "signalTime": 1793720580000,
+            "confirmedAt": 1793720640000,
+            "day": "2026-11-03",
+            "status": "Simulated",
+            "side": 1,
+            "stop": 28355.25,
+            "context": {
+              "rangeHigh": 28372.75,
+              "rangeLow": 28213,
+              "atr": 25.785714285714285
+            },
+            "entry": 28382.25,
+            "target": 28436.25,
+            "qty": 1,
+            "plannedR": 2,
+            "entryTime": 1793720640000,
+            "risk": 55.74
+          },
+          {
+            "model": "orb",
+            "signalTime": 1793803560000,
+            "confirmedAt": 1793803620000,
+            "day": "2026-11-04",
+            "status": "Rejected",
+            "side": 1,
+            "stop": 28794.75,
+            "context": {
+              "rangeHigh": 28809,
+              "rangeLow": 28405,
+              "atr": 56.642857142857146
+            },
+            "entry": 28853,
+            "target": 28969.5,
+            "qty": 0,
+            "plannedR": 2,
+            "entryTime": 1793803620000,
+            "risk": 0,
+            "rejection": "One contract exceeds risk budget"
+          },
+          {
+            "model": "orb",
+            "signalTime": 1793890020000,
+            "confirmedAt": 1793890080000,
+            "day": "2026-11-05",
+            "status": "Rejected",
+            "side": -1,
+            "stop": 27697.75,
+            "context": {
+              "rangeHigh": 28229.5,
+              "rangeLow": 27701,
+              "atr": 68.28571428571429
+            },
+            "entry": 27629.75,
+            "target": 27493.75,
+            "qty": 0,
+            "plannedR": 2,
+            "entryTime": 1793890080000,
+            "risk": 0,
+            "rejection": "One contract exceeds risk budget"
+          },
+          {
+            "model": "orb",
+            "signalTime": 1793976300000,
+            "confirmedAt": 1793976360000,
+            "day": "2026-11-06",
+            "status": "Rejected",
+            "side": 1,
+            "stop": 27270,
+            "context": {
+              "rangeHigh": 27308,
+              "rangeLow": 27035.75,
+              "atr": 75.82142857142857
+            },
+            "entry": 27344.75,
+            "target": 27494.25,
+            "qty": 0,
+            "plannedR": 2,
+            "entryTime": 1793976360000,
+            "risk": 0,
+            "rejection": "One contract exceeds risk budget"
+          },
+          {
+            "model": "orb",
+            "signalTime": 1794235560000,
+            "confirmedAt": 1794235620000,
+            "day": "2026-11-09",
+            "status": "Rejected",
+            "side": 1,
+            "stop": 27643.25,
+            "context": {
+              "rangeHigh": 27672.75,
+              "rangeLow": 27315.75,
+              "atr": 48.44642857142857
+            },
+            "entry": 27692.75,
+            "target": 27791.75,
+            "qty": 0,
+            "plannedR": 2,
+            "entryTime": 1794235620000,
+            "risk": 0,
+            "rejection": "One contract exceeds risk budget"
+          },
+          {
+            "model": "orb",
+            "signalTime": 1794322440000,
+            "confirmedAt": 1794322500000,
+            "day": "2026-11-10",
+            "status": "Rejected",
+            "side": 1,
+            "stop": 27829.25,
+            "context": {
+              "rangeHigh": 27864,
+              "rangeLow": 27637.25,
+              "atr": 51.482142857142854
+            },
+            "entry": 27880,
+            "target": 27981.5,
+            "qty": 0,
+            "plannedR": 2,
+            "entryTime": 1794322500000,
+            "risk": 0,
+            "rejection": "One contract exceeds risk budget"
+          },
+          {
+            "model": "orb",
+            "signalTime": 1794408360000,
+            "confirmedAt": 1794408420000,
+            "day": "2026-11-11",
+            "status": "Rejected",
+            "side": -1,
+            "stop": 28282.25,
+            "context": {
+              "rangeHigh": 28426.25,
+              "rangeLow": 28254.75,
+              "atr": 49.589285714285715
+            },
+            "entry": 28232.25,
+            "target": 28132.25,
+            "qty": 0,
+            "plannedR": 2,
+            "entryTime": 1794408420000,
+            "risk": 0,
+            "rejection": "One contract exceeds risk budget"
+          }
+        ],
+        "daily": [
+          {
+            "day": "2026-11-02",
+            "trades": 1,
+            "wins": 1,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": 100,
+            "hitInterval": [
+              20.654931437723747,
+              100
+            ],
+            "net": 119.76,
+            "gross": 121,
+            "fees": 1.24,
+            "profitFactor": null,
+            "averageWinner": 119.76,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": 119.76,
+            "signals": 1
+          },
+          {
+            "day": "2026-11-03",
+            "trades": 1,
+            "wins": 0,
+            "losses": 1,
+            "breakeven": 0,
+            "hitRate": 0,
+            "hitInterval": [
+              0,
+              79.34506856227625
+            ],
+            "net": -55.74,
+            "gross": -54.5,
+            "fees": 1.24,
+            "profitFactor": 0,
+            "averageWinner": null,
+            "averageLoser": 55.74,
+            "realizedPayoff": null,
+            "maxDrawdown": 55.74,
+            "expectancy": -55.74,
+            "signals": 1
+          },
+          {
+            "day": "2026-11-04",
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": null,
+            "hitInterval": null,
+            "net": 0,
+            "gross": 0,
+            "fees": 0,
+            "profitFactor": null,
+            "averageWinner": null,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": null,
+            "signals": 1
+          },
+          {
+            "day": "2026-11-05",
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": null,
+            "hitInterval": null,
+            "net": 0,
+            "gross": 0,
+            "fees": 0,
+            "profitFactor": null,
+            "averageWinner": null,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": null,
+            "signals": 1
+          },
+          {
+            "day": "2026-11-06",
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": null,
+            "hitInterval": null,
+            "net": 0,
+            "gross": 0,
+            "fees": 0,
+            "profitFactor": null,
+            "averageWinner": null,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": null,
+            "signals": 1
+          },
+          {
+            "day": "2026-11-09",
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": null,
+            "hitInterval": null,
+            "net": 0,
+            "gross": 0,
+            "fees": 0,
+            "profitFactor": null,
+            "averageWinner": null,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": null,
+            "signals": 1
+          },
+          {
+            "day": "2026-11-10",
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": null,
+            "hitInterval": null,
+            "net": 0,
+            "gross": 0,
+            "fees": 0,
+            "profitFactor": null,
+            "averageWinner": null,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": null,
+            "signals": 1
+          },
+          {
+            "day": "2026-11-11",
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": null,
+            "hitInterval": null,
+            "net": 0,
+            "gross": 0,
+            "fees": 0,
+            "profitFactor": null,
+            "averageWinner": null,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": null,
+            "signals": 1
+          }
+        ]
+      },
+      {
+        "id": "vwap",
+        "name": "VWAP reversion",
+        "family": "Mean reversion",
+        "data": "MNQ OHLC + volume",
+        "direction": "Long / short",
+        "status": "Tested",
+        "rules": "RTH-reset VWAP approximation uses typical price × minute volume. After 20 bars, require a close back inside its volume-weighted ±2σ band following an outside close. VWAP 5-bar slope must be ≤ 0.25 ATR(14). Stop beyond the signal extreme by 0.5 ATR; target signal-time VWAP, frozen. Require planned reward/risk ≥ 0.5.",
+        "stats": {
+          "trades": 3,
+          "wins": 2,
+          "losses": 1,
+          "breakeven": 0,
+          "hitRate": 66.66666666666666,
+          "hitInterval": [
+            20.76596008020477,
+            93.85080552796038
+          ],
+          "net": 392.28,
+          "gross": 396,
+          "fees": 3.7199999999999998,
+          "profitFactor": 6.624892457700029,
+          "averageWinner": 231.01,
+          "averageLoser": 69.74,
+          "realizedPayoff": 3.3124462288500145,
+          "maxDrawdown": 69.74000000000001,
+          "expectancy": 130.76
+        },
+        "trades": [
+          {
+            "model": "vwap",
+            "signalTime": 1793722080000,
+            "confirmedAt": 1793722140000,
+            "day": "2026-11-03",
+            "status": "Simulated",
+            "side": -1,
+            "stop": 28431.25,
+            "target": 28327.75,
+            "context": {
+              "center": 28327.799900481725,
+              "sd": 40.12744054918363,
+              "atr": 20.892857142857142,
+              "slope": 3.1115333031848422
+            },
+            "entry": 28406.5,
+            "qty": 1,
+            "plannedR": 3.1818181818181817,
+            "entryTime": 1793722140000,
+            "risk": 51.24,
+            "exit": 28327.75,
+            "exitTime": 1793722920000,
+            "reason": "Target",
+            "gross": 157.5,
+            "fees": 1.24,
+            "pnl": 156.26
+          },
+          {
+            "model": "vwap",
+            "signalTime": 1793979360000,
+            "confirmedAt": 1793979420000,
+            "day": "2026-11-06",
+            "status": "Simulated",
+            "side": 1,
+            "stop": 27040.5,
+            "target": 27240.75,
+            "context": {
+              "center": 27240.811089140152,
+              "sd": 85.72740559088189,
+              "atr": 50.732142857142854,
+              "slope": -10.187155939165677
+            },
+            "entry": 27087.25,
+            "qty": 1,
+            "plannedR": 3.283422459893048,
+            "entryTime": 1793979420000,
+            "risk": 95.24,
+            "exit": 27240.75,
+            "exitTime": 1793980140000,
+            "reason": "Target",
+            "gross": 307,
+            "fees": 1.24,
+            "pnl": 305.76
+          },
+          {
+            "model": "vwap",
+            "signalTime": 1794411360000,
+            "confirmedAt": 1794411420000,
+            "day": "2026-11-11",
+            "status": "Simulated",
+            "side": -1,
+            "stop": 28424.5,
+            "target": 28308.5,
+            "context": {
+              "center": 28308.609757150945,
+              "sd": 44.72693816447851,
+              "atr": 26.678571428571427,
+              "slope": 3.2754655060161895
+            },
+            "entry": 28390.5,
+            "qty": 1,
+            "plannedR": 2.411764705882353,
+            "entryTime": 1794411420000,
+            "risk": 69.74,
+            "exit": 28424.75,
+            "exitTime": 1794411780000,
+            "reason": "Stop",
+            "gross": -68.5,
+            "fees": 1.24,
+            "pnl": -69.74
+          }
+        ],
+        "signals": [
+          {
+            "model": "vwap",
+            "signalTime": 1793631540000,
+            "confirmedAt": 1793631600000,
+            "day": "2026-11-02",
+            "status": "Rejected",
+            "side": 1,
+            "stop": 28658,
+            "target": 28706.5,
+            "context": {
+              "center": 28706.43935206657,
+              "sd": 15.80682676868668,
+              "atr": 30.571428571428573,
+              "slope": -1.9944106198090594
+            },
+            "entry": 28694.75,
+            "qty": 1,
+            "plannedR": 0.3197278911564626,
+            "entryTime": 1793631600000,
+            "risk": 75.24,
+            "rejection": "Reward/risk below minimum"
+          },
+          {
+            "model": "vwap",
+            "signalTime": 1793720640000,
+            "confirmedAt": 1793720700000,
+            "day": "2026-11-03",
+            "status": "Rejected",
+            "side": -1,
+            "stop": 28396.25,
+            "target": 28315,
+            "context": {
+              "center": 28314.88402891799,
+              "sd": 28.13589902142086,
+              "atr": 27.375,
+              "slope": 2.519374709823751
+            },
+            "entry": 28345.5,
+            "qty": 0,
+            "plannedR": 0.6009852216748769,
+            "entryTime": 1793720700000,
+            "risk": 0,
+            "rejection": "One contract exceeds risk budget"
+          },
+          {
+            "model": "vwap",
+            "signalTime": 1793722080000,
+            "confirmedAt": 1793722140000,
+            "day": "2026-11-03",
+            "status": "Simulated",
+            "side": -1,
+            "stop": 28431.25,
+            "target": 28327.75,
+            "context": {
+              "center": 28327.799900481725,
+              "sd": 40.12744054918363,
+              "atr": 20.892857142857142,
+              "slope": 3.1115333031848422
+            },
+            "entry": 28406.5,
+            "qty": 1,
+            "plannedR": 3.1818181818181817,
+            "entryTime": 1793722140000,
+            "risk": 51.24
+          },
+          {
+            "model": "vwap",
+            "signalTime": 1793979360000,
+            "confirmedAt": 1793979420000,
+            "day": "2026-11-06",
+            "status": "Simulated",
+            "side": 1,
+            "stop": 27040.5,
+            "target": 27240.75,
+            "context": {
+              "center": 27240.811089140152,
+              "sd": 85.72740559088189,
+              "atr": 50.732142857142854,
+              "slope": -10.187155939165677
+            },
+            "entry": 27087.25,
+            "qty": 1,
+            "plannedR": 3.283422459893048,
+            "entryTime": 1793979420000,
+            "risk": 95.24
+          },
+          {
+            "model": "vwap",
+            "signalTime": 1794411360000,
+            "confirmedAt": 1794411420000,
+            "day": "2026-11-11",
+            "status": "Simulated",
+            "side": -1,
+            "stop": 28424.5,
+            "target": 28308.5,
+            "context": {
+              "center": 28308.609757150945,
+              "sd": 44.72693816447851,
+              "atr": 26.678571428571427,
+              "slope": 3.2754655060161895
+            },
+            "entry": 28390.5,
+            "qty": 1,
+            "plannedR": 2.411764705882353,
+            "entryTime": 1794411420000,
+            "risk": 69.74
+          }
+        ],
+        "daily": [
+          {
+            "day": "2026-11-02",
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": null,
+            "hitInterval": null,
+            "net": 0,
+            "gross": 0,
+            "fees": 0,
+            "profitFactor": null,
+            "averageWinner": null,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": null,
+            "signals": 1
+          },
+          {
+            "day": "2026-11-03",
+            "trades": 1,
+            "wins": 1,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": 100,
+            "hitInterval": [
+              20.654931437723747,
+              100
+            ],
+            "net": 156.26,
+            "gross": 157.5,
+            "fees": 1.24,
+            "profitFactor": null,
+            "averageWinner": 156.26,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": 156.26,
+            "signals": 2
+          },
+          {
+            "day": "2026-11-04",
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": null,
+            "hitInterval": null,
+            "net": 0,
+            "gross": 0,
+            "fees": 0,
+            "profitFactor": null,
+            "averageWinner": null,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": null,
+            "signals": 0
+          },
+          {
+            "day": "2026-11-05",
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": null,
+            "hitInterval": null,
+            "net": 0,
+            "gross": 0,
+            "fees": 0,
+            "profitFactor": null,
+            "averageWinner": null,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": null,
+            "signals": 0
+          },
+          {
+            "day": "2026-11-06",
+            "trades": 1,
+            "wins": 1,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": 100,
+            "hitInterval": [
+              20.654931437723747,
+              100
+            ],
+            "net": 305.76,
+            "gross": 307,
+            "fees": 1.24,
+            "profitFactor": null,
+            "averageWinner": 305.76,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": 305.76,
+            "signals": 1
+          },
+          {
+            "day": "2026-11-09",
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": null,
+            "hitInterval": null,
+            "net": 0,
+            "gross": 0,
+            "fees": 0,
+            "profitFactor": null,
+            "averageWinner": null,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": null,
+            "signals": 0
+          },
+          {
+            "day": "2026-11-10",
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": null,
+            "hitInterval": null,
+            "net": 0,
+            "gross": 0,
+            "fees": 0,
+            "profitFactor": null,
+            "averageWinner": null,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": null,
+            "signals": 0
+          },
+          {
+            "day": "2026-11-11",
+            "trades": 1,
+            "wins": 0,
+            "losses": 1,
+            "breakeven": 0,
+            "hitRate": 0,
+            "hitInterval": [
+              0,
+              79.34506856227625
+            ],
+            "net": -69.74,
+            "gross": -68.5,
+            "fees": 1.24,
+            "profitFactor": 0,
+            "averageWinner": null,
+            "averageLoser": 69.74,
+            "realizedPayoff": null,
+            "maxDrawdown": 69.74,
+            "expectancy": -69.74,
+            "signals": 1
+          }
+        ]
+      },
+      {
+        "id": "bands",
+        "name": "Bollinger reversion",
+        "family": "Mean reversion",
+        "data": "MNQ OHLC",
+        "direction": "Long / short",
+        "status": "Tested",
+        "rules": "20-close SMA ±2 population standard deviations. Require a completed close back inside after an outside close, and 5-bar SMA slope ≤ 0.25 ATR(14). Stop beyond the signal extreme by 0.5 ATR; target signal-time SMA, frozen. Require planned reward/risk ≥ 0.5.",
+        "stats": {
+          "trades": 5,
+          "wins": 3,
+          "losses": 2,
+          "breakeven": 0,
+          "hitRate": 60,
+          "hitInterval": [
+            23.07242812760128,
+            88.2379225767352
+          ],
+          "net": 63.56,
+          "gross": 71,
+          "fees": 7.44,
+          "profitFactor": 1.4665981500513876,
+          "averageWinner": 66.59333333333335,
+          "averageLoser": 68.11,
+          "realizedPayoff": 0.9777321000342585,
+          "maxDrawdown": 78.48,
+          "expectancy": 12.712
+        },
+        "trades": [
+          {
+            "model": "bands",
+            "signalTime": 1793632200000,
+            "confirmedAt": 1793632260000,
+            "day": "2026-11-02",
+            "status": "Simulated",
+            "side": -1,
+            "stop": 28737.5,
+            "target": 28697.75,
+            "context": {
+              "center": 28697.8375,
+              "sd": 13.011119042957068,
+              "atr": 29.410714285714285,
+              "slope": -3.774999999997817
+            },
+            "entry": 28718.75,
+            "qty": 2,
+            "plannedR": 1.12,
+            "entryTime": 1793632260000,
+            "risk": 78.48,
+            "exit": 28737.75,
+            "exitTime": 1793632260000,
+            "reason": "Stop",
+            "gross": -76,
+            "fees": 2.48,
+            "pnl": -78.48
+          },
+          {
+            "model": "bands",
+            "signalTime": 1793717700000,
+            "confirmedAt": 1793717760000,
+            "day": "2026-11-03",
+            "status": "Simulated",
+            "side": 1,
+            "stop": 28243.75,
+            "target": 28322.5,
+            "context": {
+              "center": 28322.4375,
+              "sd": 28.231285283351873,
+              "atr": 32.035714285714285,
+              "slope": 0.2125000000014552
+            },
+            "entry": 28274.75,
+            "qty": 1,
+            "plannedR": 1.5403225806451613,
+            "entryTime": 1793717760000,
+            "risk": 63.74,
+            "exit": 28322.5,
+            "exitTime": 1793718120000,
+            "reason": "Target",
+            "gross": 95.5,
+            "fees": 1.24,
+            "pnl": 94.26
+          },
+          {
+            "model": "bands",
+            "signalTime": 1793719980000,
+            "confirmedAt": 1793720040000,
+            "day": "2026-11-03",
+            "status": "Simulated",
+            "side": 1,
+            "stop": 28276,
+            "target": 28328,
+            "context": {
+              "center": 28328.1125,
+              "sd": 16.296946608184,
+              "atr": 27.892857142857142,
+              "slope": -0.8250000000007276
+            },
+            "entry": 28307.25,
+            "qty": 1,
+            "plannedR": 0.664,
+            "entryTime": 1793720040000,
+            "risk": 64.24,
+            "exit": 28328,
+            "exitTime": 1793720220000,
+            "reason": "Target",
+            "gross": 41.5,
+            "fees": 1.24,
+            "pnl": 40.26
+          },
+          {
+            "model": "bands",
+            "signalTime": 1793722680000,
+            "confirmedAt": 1793722740000,
+            "day": "2026-11-03",
+            "status": "Simulated",
+            "side": 1,
+            "stop": 28344.75,
+            "target": 28406.5,
+            "context": {
+              "center": 28406.375,
+              "sd": 17.01148509096134,
+              "atr": 19.964285714285715,
+              "slope": -0.4000000000014552
+            },
+            "entry": 28372.75,
+            "qty": 1,
+            "plannedR": 1.2053571428571428,
+            "entryTime": 1793722740000,
+            "risk": 57.74,
+            "exit": 28344.5,
+            "exitTime": 1793722860000,
+            "reason": "Stop",
+            "gross": -56.5,
+            "fees": 1.24,
+            "pnl": -57.74
+          },
+          {
+            "model": "bands",
+            "signalTime": 1794327720000,
+            "confirmedAt": 1794327780000,
+            "day": "2026-11-10",
+            "status": "Simulated",
+            "side": 1,
+            "stop": 27740,
+            "target": 27804.75,
+            "context": {
+              "center": 27804.7875,
+              "sd": 20.072723251965584,
+              "atr": 32.125,
+              "slope": 1.7999999999992724
+            },
+            "entry": 27771.5,
+            "qty": 1,
+            "plannedR": 1.0555555555555556,
+            "entryTime": 1794327780000,
+            "risk": 64.74,
+            "exit": 27804.75,
+            "exitTime": 1794327840000,
+            "reason": "Target",
+            "gross": 66.5,
+            "fees": 1.24,
+            "pnl": 65.26
+          }
+        ],
+        "signals": [
+          {
+            "model": "bands",
+            "signalTime": 1793631540000,
+            "confirmedAt": 1793631600000,
+            "day": "2026-11-02",
+            "status": "Rejected",
+            "side": 1,
+            "stop": 28658,
+            "target": 28710.75,
+            "context": {
+              "center": 28710.7375,
+              "sd": 18.855283576493886,
+              "atr": 30.571428571428573,
+              "slope": -1.0375000000021828
+            },
+            "entry": 28694.75,
+            "qty": 1,
+            "plannedR": 0.43537414965986393,
+            "entryTime": 1793631600000,
+            "risk": 75.24,
+            "rejection": "Reward/risk below minimum"
+          },
+          {
+            "model": "bands",
+            "signalTime": 1793632200000,
+            "confirmedAt": 1793632260000,
+            "day": "2026-11-02",
+            "status": "Simulated",
+            "side": -1,
+            "stop": 28737.5,
+            "target": 28697.75,
+            "context": {
+              "center": 28697.8375,
+              "sd": 13.011119042957068,
+              "atr": 29.410714285714285,
+              "slope": -3.774999999997817
+            },
+            "entry": 28718.75,
+            "qty": 2,
+            "plannedR": 1.12,
+            "entryTime": 1793632260000,
+            "risk": 78.48
+          },
+          {
+            "model": "bands",
+            "signalTime": 1793717700000,
+            "confirmedAt": 1793717760000,
+            "day": "2026-11-03",
+            "status": "Simulated",
+            "side": 1,
+            "stop": 28243.75,
+            "target": 28322.5,
+            "context": {
+              "center": 28322.4375,
+              "sd": 28.231285283351873,
+              "atr": 32.035714285714285,
+              "slope": 0.2125000000014552
+            },
+            "entry": 28274.75,
+            "qty": 1,
+            "plannedR": 1.5403225806451613,
+            "entryTime": 1793717760000,
+            "risk": 63.74
+          },
+          {
+            "model": "bands",
+            "signalTime": 1793719980000,
+            "confirmedAt": 1793720040000,
+            "day": "2026-11-03",
+            "status": "Simulated",
+            "side": 1,
+            "stop": 28276,
+            "target": 28328,
+            "context": {
+              "center": 28328.1125,
+              "sd": 16.296946608184,
+              "atr": 27.892857142857142,
+              "slope": -0.8250000000007276
+            },
+            "entry": 28307.25,
+            "qty": 1,
+            "plannedR": 0.664,
+            "entryTime": 1793720040000,
+            "risk": 64.24
+          },
+          {
+            "model": "bands",
+            "signalTime": 1793722680000,
+            "confirmedAt": 1793722740000,
+            "day": "2026-11-03",
+            "status": "Simulated",
+            "side": 1,
+            "stop": 28344.75,
+            "target": 28406.5,
+            "context": {
+              "center": 28406.375,
+              "sd": 17.01148509096134,
+              "atr": 19.964285714285715,
+              "slope": -0.4000000000014552
+            },
+            "entry": 28372.75,
+            "qty": 1,
+            "plannedR": 1.2053571428571428,
+            "entryTime": 1793722740000,
+            "risk": 57.74
+          },
+          {
+            "model": "bands",
+            "signalTime": 1793809680000,
+            "confirmedAt": 1793809740000,
+            "day": "2026-11-04",
+            "status": "Rejected",
+            "side": 1,
+            "stop": 28455.75,
+            "target": 28586.25,
+            "context": {
+              "center": 28586.175,
+              "sd": 49.185115888854014,
+              "atr": 35.732142857142854,
+              "slope": -8.387500000000728
+            },
+            "entry": 28505.5,
+            "qty": 0,
+            "plannedR": 1.6231155778894473,
+            "entryTime": 1793809740000,
+            "risk": 0,
+            "rejection": "One contract exceeds risk budget"
+          },
+          {
+            "model": "bands",
+            "signalTime": 1794327720000,
+            "confirmedAt": 1794327780000,
+            "day": "2026-11-10",
+            "status": "Simulated",
+            "side": 1,
+            "stop": 27740,
+            "target": 27804.75,
+            "context": {
+              "center": 27804.7875,
+              "sd": 20.072723251965584,
+              "atr": 32.125,
+              "slope": 1.7999999999992724
+            },
+            "entry": 27771.5,
+            "qty": 1,
+            "plannedR": 1.0555555555555556,
+            "entryTime": 1794327780000,
+            "risk": 64.74
+          },
+          {
+            "model": "bands",
+            "signalTime": 1794328020000,
+            "confirmedAt": 1794328080000,
+            "day": "2026-11-10",
+            "status": "Rejected",
+            "side": 1,
+            "stop": 27710.75,
+            "target": 27797.25,
+            "context": {
+              "center": 27797.175,
+              "sd": 24.168561707308935,
+              "atr": 34.607142857142854,
+              "slope": -7.612499999999272
+            },
+            "entry": 27764.5,
+            "qty": 0,
+            "plannedR": 0.6093023255813953,
+            "entryTime": 1794328080000,
+            "risk": 0,
+            "rejection": "One contract exceeds risk budget"
+          }
+        ],
+        "daily": [
+          {
+            "day": "2026-11-02",
+            "trades": 1,
+            "wins": 0,
+            "losses": 1,
+            "breakeven": 0,
+            "hitRate": 0,
+            "hitInterval": [
+              0,
+              79.34506856227625
+            ],
+            "net": -78.48,
+            "gross": -76,
+            "fees": 2.48,
+            "profitFactor": 0,
+            "averageWinner": null,
+            "averageLoser": 78.48,
+            "realizedPayoff": null,
+            "maxDrawdown": 78.48,
+            "expectancy": -78.48,
+            "signals": 2
+          },
+          {
+            "day": "2026-11-03",
+            "trades": 3,
+            "wins": 2,
+            "losses": 1,
+            "breakeven": 0,
+            "hitRate": 66.66666666666666,
+            "hitInterval": [
+              20.76596008020477,
+              93.85080552796038
+            ],
+            "net": 76.78,
+            "gross": 80.5,
+            "fees": 3.7199999999999998,
+            "profitFactor": 2.3297540699688257,
+            "averageWinner": 67.26,
+            "averageLoser": 57.74,
+            "realizedPayoff": 1.1648770349844129,
+            "maxDrawdown": 57.74000000000001,
+            "expectancy": 25.593333333333334,
+            "signals": 3
+          },
+          {
+            "day": "2026-11-04",
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": null,
+            "hitInterval": null,
+            "net": 0,
+            "gross": 0,
+            "fees": 0,
+            "profitFactor": null,
+            "averageWinner": null,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": null,
+            "signals": 1
+          },
+          {
+            "day": "2026-11-05",
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": null,
+            "hitInterval": null,
+            "net": 0,
+            "gross": 0,
+            "fees": 0,
+            "profitFactor": null,
+            "averageWinner": null,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": null,
+            "signals": 0
+          },
+          {
+            "day": "2026-11-06",
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": null,
+            "hitInterval": null,
+            "net": 0,
+            "gross": 0,
+            "fees": 0,
+            "profitFactor": null,
+            "averageWinner": null,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": null,
+            "signals": 0
+          },
+          {
+            "day": "2026-11-09",
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": null,
+            "hitInterval": null,
+            "net": 0,
+            "gross": 0,
+            "fees": 0,
+            "profitFactor": null,
+            "averageWinner": null,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": null,
+            "signals": 0
+          },
+          {
+            "day": "2026-11-10",
+            "trades": 1,
+            "wins": 1,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": 100,
+            "hitInterval": [
+              20.654931437723747,
+              100
+            ],
+            "net": 65.26,
+            "gross": 66.5,
+            "fees": 1.24,
+            "profitFactor": null,
+            "averageWinner": 65.26,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": 65.26,
+            "signals": 2
+          },
+          {
+            "day": "2026-11-11",
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": null,
+            "hitInterval": null,
+            "net": 0,
+            "gross": 0,
+            "fees": 0,
+            "profitFactor": null,
+            "averageWinner": null,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": null,
+            "signals": 0
+          }
+        ]
+      },
+      {
+        "id": "fade",
+        "name": "Opening range fade",
+        "family": "Opening range fade",
+        "data": "MNQ OHLC",
+        "direction": "Long / short",
+        "status": "Tested",
+        "rules": "Freeze the 09:30–09:44 range. After a completed close outside by ≥ 1 point, wait for a close back inside. Fade toward the frozen range midpoint; stop 1 point beyond the excursion extreme. Require planned reward/risk ≥ 0.5. One signal attempt per session.",
+        "stats": {
+          "trades": 1,
+          "wins": 0,
+          "losses": 1,
+          "breakeven": 0,
+          "hitRate": 0,
+          "hitInterval": [
+            0,
+            79.34506856227625
+          ],
+          "net": -94.74,
+          "gross": -93.5,
+          "fees": 1.24,
+          "profitFactor": 0,
+          "averageWinner": null,
+          "averageLoser": 94.74,
+          "realizedPayoff": null,
+          "maxDrawdown": 94.74,
+          "expectancy": -94.74
+        },
+        "trades": [
+          {
+            "model": "fade",
+            "signalTime": 1793720640000,
+            "confirmedAt": 1793720700000,
+            "day": "2026-11-03",
+            "status": "Simulated",
+            "side": -1,
+            "stop": 28392,
+            "target": 28293,
+            "context": {
+              "rangeHigh": 28372.75,
+              "rangeLow": 28213,
+              "excursionExtreme": 28391
+            },
+            "entry": 28345.5,
+            "qty": 1,
+            "plannedR": 1.1290322580645162,
+            "entryTime": 1793720700000,
+            "risk": 94.74,
+            "exit": 28392.25,
+            "exitTime": 1793721360000,
+            "reason": "Stop",
+            "gross": -93.5,
+            "fees": 1.24,
+            "pnl": -94.74
+          }
+        ],
+        "signals": [
+          {
+            "model": "fade",
+            "signalTime": 1793634960000,
+            "confirmedAt": 1793635020000,
+            "day": "2026-11-02",
+            "status": "Rejected",
+            "side": -1,
+            "stop": 28892.5,
+            "target": 28694.25,
+            "context": {
+              "rangeHigh": 28748.75,
+              "rangeLow": 28639.75,
+              "excursionExtreme": 28891.5
+            },
+            "entry": 28740.5,
+            "qty": 0,
+            "plannedR": 0.3042763157894737,
+            "entryTime": 1793635020000,
+            "risk": 0,
+            "rejection": "One contract exceeds risk budget"
+          },
+          {
+            "model": "fade",
+            "signalTime": 1793720640000,
+            "confirmedAt": 1793720700000,
+            "day": "2026-11-03",
+            "status": "Simulated",
+            "side": -1,
+            "stop": 28392,
+            "target": 28293,
+            "context": {
+              "rangeHigh": 28372.75,
+              "rangeLow": 28213,
+              "excursionExtreme": 28391
+            },
+            "entry": 28345.5,
+            "qty": 1,
+            "plannedR": 1.1290322580645162,
+            "entryTime": 1793720700000,
+            "risk": 94.74
+          },
+          {
+            "model": "fade",
+            "signalTime": 1793803800000,
+            "confirmedAt": 1793803860000,
+            "day": "2026-11-04",
+            "status": "Rejected",
+            "side": -1,
+            "stop": 28865.25,
+            "target": 28607,
+            "context": {
+              "rangeHigh": 28809,
+              "rangeLow": 28405,
+              "excursionExtreme": 28864.25
+            },
+            "entry": 28778.5,
+            "qty": 0,
+            "plannedR": 1.9769452449567724,
+            "entryTime": 1793803860000,
+            "risk": 0,
+            "rejection": "One contract exceeds risk budget"
+          },
+          {
+            "model": "fade",
+            "signalTime": 1793976960000,
+            "confirmedAt": 1793977020000,
+            "day": "2026-11-06",
+            "status": "Rejected",
+            "side": -1,
+            "stop": 27426,
+            "target": 27172,
+            "context": {
+              "rangeHigh": 27308,
+              "rangeLow": 27035.75,
+              "excursionExtreme": 27425
+            },
+            "entry": 27302.25,
+            "qty": 0,
+            "plannedR": 1.0525252525252524,
+            "entryTime": 1793977020000,
+            "risk": 0,
+            "rejection": "One contract exceeds risk budget"
+          },
+          {
+            "model": "fade",
+            "signalTime": 1794325260000,
+            "confirmedAt": 1794325320000,
+            "day": "2026-11-10",
+            "status": "Rejected",
+            "side": -1,
+            "stop": 28091.25,
+            "target": 27750.75,
+            "context": {
+              "rangeHigh": 27864,
+              "rangeLow": 27637.25,
+              "excursionExtreme": 28090.25
+            },
+            "entry": 27856,
+            "qty": 0,
+            "plannedR": 0.44739638682252925,
+            "entryTime": 1794325320000,
+            "risk": 0,
+            "rejection": "One contract exceeds risk budget"
+          },
+          {
+            "model": "fade",
+            "signalTime": 1794408600000,
+            "confirmedAt": 1794408660000,
+            "day": "2026-11-11",
+            "status": "Rejected",
+            "side": 1,
+            "stop": 28197.75,
+            "target": 28340.5,
+            "context": {
+              "rangeHigh": 28426.25,
+              "rangeLow": 28254.75,
+              "excursionExtreme": 28198.75
+            },
+            "entry": 28267,
+            "qty": 0,
+            "plannedR": 1.0613718411552346,
+            "entryTime": 1794408660000,
+            "risk": 0,
+            "rejection": "One contract exceeds risk budget"
+          }
+        ],
+        "daily": [
+          {
+            "day": "2026-11-02",
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": null,
+            "hitInterval": null,
+            "net": 0,
+            "gross": 0,
+            "fees": 0,
+            "profitFactor": null,
+            "averageWinner": null,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": null,
+            "signals": 1
+          },
+          {
+            "day": "2026-11-03",
+            "trades": 1,
+            "wins": 0,
+            "losses": 1,
+            "breakeven": 0,
+            "hitRate": 0,
+            "hitInterval": [
+              0,
+              79.34506856227625
+            ],
+            "net": -94.74,
+            "gross": -93.5,
+            "fees": 1.24,
+            "profitFactor": 0,
+            "averageWinner": null,
+            "averageLoser": 94.74,
+            "realizedPayoff": null,
+            "maxDrawdown": 94.74,
+            "expectancy": -94.74,
+            "signals": 1
+          },
+          {
+            "day": "2026-11-04",
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": null,
+            "hitInterval": null,
+            "net": 0,
+            "gross": 0,
+            "fees": 0,
+            "profitFactor": null,
+            "averageWinner": null,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": null,
+            "signals": 1
+          },
+          {
+            "day": "2026-11-05",
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": null,
+            "hitInterval": null,
+            "net": 0,
+            "gross": 0,
+            "fees": 0,
+            "profitFactor": null,
+            "averageWinner": null,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": null,
+            "signals": 0
+          },
+          {
+            "day": "2026-11-06",
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": null,
+            "hitInterval": null,
+            "net": 0,
+            "gross": 0,
+            "fees": 0,
+            "profitFactor": null,
+            "averageWinner": null,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": null,
+            "signals": 1
+          },
+          {
+            "day": "2026-11-09",
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": null,
+            "hitInterval": null,
+            "net": 0,
+            "gross": 0,
+            "fees": 0,
+            "profitFactor": null,
+            "averageWinner": null,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": null,
+            "signals": 0
+          },
+          {
+            "day": "2026-11-10",
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": null,
+            "hitInterval": null,
+            "net": 0,
+            "gross": 0,
+            "fees": 0,
+            "profitFactor": null,
+            "averageWinner": null,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": null,
+            "signals": 1
+          },
+          {
+            "day": "2026-11-11",
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": null,
+            "hitInterval": null,
+            "net": 0,
+            "gross": 0,
+            "fees": 0,
+            "profitFactor": null,
+            "averageWinner": null,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": null,
+            "signals": 1
+          }
+        ]
+      },
+      {
+        "id": "pairs",
+        "name": "MNQ / MES spread",
+        "family": "Pairs / spread",
+        "data": "Synchronized MNQ + MES OHLC",
+        "direction": "Two opposing legs",
+        "status": "Exploratory / separate fills",
+        "rules": "Freeze integer MES hedge quantity from five earlier complete sessions using average notional values: 1 MNQ versus round(2×mean MNQ / (5×mean MES)) MES. Dollar spread = 2×MNQ − 5×MES quantity×MES. Cross ±2 on an RTH-reset rolling 60-close z-score to fade it; close at |z| ≤ 0.5, a mean crossing, $100 close-based net stop, 30 minutes, or 16:00. All fills next synchronized open. Both legs incur costs. This is a spread hypothesis, not a cointegration test.",
+        "stats": {
+          "trades": 10,
+          "wins": 3,
+          "losses": 7,
+          "breakeven": 0,
+          "hitRate": 30,
+          "hitInterval": [
+            10.7791267406301,
+            60.322185253885465
+          ],
+          "net": -432.70000000000005,
+          "gross": -395.5,
+          "fees": 37.199999999999996,
+          "profitFactor": 0.11429975027633356,
+          "averageWinner": 18.613333333333333,
+          "averageLoser": 69.79142857142858,
+          "realizedPayoff": 0.2666994173114449,
+          "maxDrawdown": 458.26000000000005,
+          "expectancy": -43.27
+        },
+        "trades": [
+          {
+            "model": "pairs",
+            "side": 1,
+            "signalTime": 1793634480000,
+            "confirmedAt": 1793634540000,
+            "entryTime": 1793634540000,
+            "entryNQ": 28787.5,
+            "entryMES": 7679.75,
+            "qty": 1,
+            "esQty": 2,
+            "day": "2026-11-02",
+            "entryZ": -2.0909314790809215,
+            "nominalStopBudget": 100,
+            "context": {
+              "spread": -19226.5,
+              "mean": -19178.875,
+              "sd": 22.776930031649716,
+              "hedgeMES": 2
+            },
+            "exitTime": 1793635080000,
+            "exitNQ": 28727,
+            "exitMES": 7665,
+            "reason": "Spread reversion",
+            "gross": 26.5,
+            "fees": 3.7199999999999998,
+            "pnl": 22.78,
+            "legs": [
+              {
+                "symbol": "MNQ=F",
+                "qty": 1,
+                "side": 1,
+                "entry": 28787.5,
+                "exit": 28727,
+                "multiplier": 2
+              },
+              {
+                "symbol": "MES=F",
+                "qty": 2,
+                "side": -1,
+                "entry": 7679.75,
+                "exit": 7665,
+                "multiplier": 5
+              }
+            ]
+          },
+          {
+            "model": "pairs",
+            "side": 1,
+            "signalTime": 1793722560000,
+            "confirmedAt": 1793722620000,
+            "entryTime": 1793722620000,
+            "entryNQ": 28387,
+            "entryMES": 7615.75,
+            "qty": 1,
+            "esQty": 2,
+            "day": "2026-11-03",
+            "entryZ": -2.3682605321096797,
+            "nominalStopBudget": 100,
+            "context": {
+              "spread": -19384.5,
+              "mean": -19327.35,
+              "sd": 24.13163552959751,
+              "hedgeMES": 2
+            },
+            "exitTime": 1793724300000,
+            "exitNQ": 28316.5,
+            "exitMES": 7601,
+            "reason": "Spread reversion",
+            "gross": 6.5,
+            "fees": 3.7199999999999998,
+            "pnl": 2.7800000000000002,
+            "legs": [
+              {
+                "symbol": "MNQ=F",
+                "qty": 1,
+                "side": 1,
+                "entry": 28387,
+                "exit": 28316.5,
+                "multiplier": 2
+              },
+              {
+                "symbol": "MES=F",
+                "qty": 2,
+                "side": -1,
+                "entry": 7615.75,
+                "exit": 7601,
+                "multiplier": 5
+              }
+            ]
+          },
+          {
+            "model": "pairs",
+            "side": 1,
+            "signalTime": 1793807040000,
+            "confirmedAt": 1793807100000,
+            "entryTime": 1793807100000,
+            "entryNQ": 28693.25,
+            "entryMES": 7716.25,
+            "qty": 1,
+            "esQty": 2,
+            "day": "2026-11-04",
+            "entryZ": -2.389130684682839,
+            "nominalStopBudget": 100,
+            "context": {
+              "spread": -19783.5,
+              "mean": -19608.208333333332,
+              "sd": 73.37048064825224,
+              "hedgeMES": 2
+            },
+            "exitTime": 1793807940000,
+            "exitNQ": 28612.25,
+            "exitMES": 7711.75,
+            "reason": "Close-based stop",
+            "gross": -117,
+            "fees": 3.7199999999999998,
+            "pnl": -120.72,
+            "legs": [
+              {
+                "symbol": "MNQ=F",
+                "qty": 1,
+                "side": 1,
+                "entry": 28693.25,
+                "exit": 28612.25,
+                "multiplier": 2
+              },
+              {
+                "symbol": "MES=F",
+                "qty": 2,
+                "side": -1,
+                "entry": 7716.25,
+                "exit": 7711.75,
+                "multiplier": 5
+              }
+            ]
+          },
+          {
+            "model": "pairs",
+            "side": -1,
+            "signalTime": 1793892780000,
+            "confirmedAt": 1793892840000,
+            "entryTime": 1793892840000,
+            "entryNQ": 27263.75,
+            "entryMES": 7527,
+            "qty": 1,
+            "esQty": 2,
+            "day": "2026-11-05",
+            "entryZ": 2.3225023131539984,
+            "nominalStopBudget": 100,
+            "context": {
+              "spread": -20735,
+              "mean": -20830.366666666665,
+              "sd": 41.06203301780801,
+              "hedgeMES": 2
+            },
+            "exitTime": 1793894400000,
+            "exitNQ": 26974.75,
+            "exitMES": 7469.25,
+            "reason": "Spread reversion",
+            "gross": 0.5,
+            "fees": 3.7199999999999998,
+            "pnl": -3.2199999999999998,
+            "legs": [
+              {
+                "symbol": "MNQ=F",
+                "qty": 1,
+                "side": -1,
+                "entry": 27263.75,
+                "exit": 26974.75,
+                "multiplier": 2
+              },
+              {
+                "symbol": "MES=F",
+                "qty": 2,
+                "side": 1,
+                "entry": 7527,
+                "exit": 7469.25,
+                "multiplier": 5
+              }
+            ]
+          },
+          {
+            "model": "pairs",
+            "side": -1,
+            "signalTime": 1793895060000,
+            "confirmedAt": 1793895120000,
+            "entryTime": 1793895120000,
+            "entryNQ": 27088.75,
+            "entryMES": 7478.75,
+            "qty": 1,
+            "esQty": 2,
+            "day": "2026-11-05",
+            "entryZ": 2.306254649684342,
+            "nominalStopBudget": 100,
+            "context": {
+              "spread": -20602,
+              "mean": -20738.441666666666,
+              "sd": 59.16157900661167,
+              "hedgeMES": 2
+            },
+            "exitTime": 1793895420000,
+            "exitNQ": 27132.25,
+            "exitMES": 7477.75,
+            "reason": "Close-based stop",
+            "gross": -97,
+            "fees": 3.7199999999999998,
+            "pnl": -100.72,
+            "legs": [
+              {
+                "symbol": "MNQ=F",
+                "qty": 1,
+                "side": -1,
+                "entry": 27088.75,
+                "exit": 27132.25,
+                "multiplier": 2
+              },
+              {
+                "symbol": "MES=F",
+                "qty": 2,
+                "side": 1,
+                "entry": 7478.75,
+                "exit": 7477.75,
+                "multiplier": 5
+              }
+            ]
+          },
+          {
+            "model": "pairs",
+            "side": -1,
+            "signalTime": 1793895900000,
+            "confirmedAt": 1793895960000,
+            "entryTime": 1793895960000,
+            "entryNQ": 27304.25,
+            "entryMES": 7506,
+            "qty": 1,
+            "esQty": 2,
+            "day": "2026-11-05",
+            "entryZ": 2.14089089610514,
+            "nominalStopBudget": 100,
+            "context": {
+              "spread": -20450,
+              "mean": -20666.083333333332,
+              "sd": 100.93150179976297,
+              "hedgeMES": 2
+            },
+            "exitTime": 1793897760000,
+            "exitNQ": 27149.5,
+            "exitMES": 7470,
+            "reason": "Time limit",
+            "gross": -50.5,
+            "fees": 3.7199999999999998,
+            "pnl": -54.22,
+            "legs": [
+              {
+                "symbol": "MNQ=F",
+                "qty": 1,
+                "side": -1,
+                "entry": 27304.25,
+                "exit": 27149.5,
+                "multiplier": 2
+              },
+              {
+                "symbol": "MES=F",
+                "qty": 2,
+                "side": 1,
+                "entry": 7506,
+                "exit": 7470,
+                "multiplier": 5
+              }
+            ]
+          },
+          {
+            "model": "pairs",
+            "side": -1,
+            "signalTime": 1793982180000,
+            "confirmedAt": 1793982240000,
+            "entryTime": 1793982240000,
+            "entryNQ": 27221.25,
+            "entryMES": 7441,
+            "qty": 1,
+            "esQty": 2,
+            "day": "2026-11-06",
+            "entryZ": 2.252728954425423,
+            "nominalStopBudget": 100,
+            "context": {
+              "spread": -19965,
+              "mean": -20015.5,
+              "sd": 22.417255258691537,
+              "hedgeMES": 2
+            },
+            "exitTime": 1793983440000,
+            "exitNQ": 27249.75,
+            "exitMES": 7447,
+            "reason": "Spread reversion",
+            "gross": 3,
+            "fees": 3.7199999999999998,
+            "pnl": -0.7199999999999998,
+            "legs": [
+              {
+                "symbol": "MNQ=F",
+                "qty": 1,
+                "side": -1,
+                "entry": 27221.25,
+                "exit": 27249.75,
+                "multiplier": 2
+              },
+              {
+                "symbol": "MES=F",
+                "qty": 2,
+                "side": 1,
+                "entry": 7441,
+                "exit": 7447,
+                "multiplier": 5
+              }
+            ]
+          },
+          {
+            "model": "pairs",
+            "side": -1,
+            "signalTime": 1794240060000,
+            "confirmedAt": 1794240120000,
+            "entryTime": 1794240120000,
+            "entryNQ": 27982.5,
+            "entryMES": 7560.5,
+            "qty": 1,
+            "esQty": 2,
+            "day": "2026-11-09",
+            "entryZ": 2.0442023194477623,
+            "nominalStopBudget": 100,
+            "context": {
+              "spread": -19637.5,
+              "mean": -19714.8,
+              "sd": 37.814260978278185,
+              "hedgeMES": 2
+            },
+            "exitTime": 1794241140000,
+            "exitNQ": 27906.75,
+            "exitMES": 7548.75,
+            "reason": "Spread reversion",
+            "gross": 34,
+            "fees": 3.7199999999999998,
+            "pnl": 30.28,
+            "legs": [
+              {
+                "symbol": "MNQ=F",
+                "qty": 1,
+                "side": -1,
+                "entry": 27982.5,
+                "exit": 27906.75,
+                "multiplier": 2
+              },
+              {
+                "symbol": "MES=F",
+                "qty": 2,
+                "side": 1,
+                "entry": 7560.5,
+                "exit": 7548.75,
+                "multiplier": 5
+              }
+            ]
+          },
+          {
+            "model": "pairs",
+            "side": 1,
+            "signalTime": 1794327960000,
+            "confirmedAt": 1794328020000,
+            "entryTime": 1794328020000,
+            "entryNQ": 27744.5,
+            "entryMES": 7515,
+            "qty": 1,
+            "esQty": 2,
+            "day": "2026-11-10",
+            "entryZ": -2.2726974745523174,
+            "nominalStopBudget": 100,
+            "context": {
+              "spread": -19666,
+              "mean": -19609.183333333334,
+              "sd": 24.999661108814145,
+              "hedgeMES": 2
+            },
+            "exitTime": 1794329400000,
+            "exitNQ": 27666,
+            "exitMES": 7509.5,
+            "reason": "Close-based stop",
+            "gross": -102,
+            "fees": 3.7199999999999998,
+            "pnl": -105.72,
+            "legs": [
+              {
+                "symbol": "MNQ=F",
+                "qty": 1,
+                "side": 1,
+                "entry": 27744.5,
+                "exit": 27666,
+                "multiplier": 2
+              },
+              {
+                "symbol": "MES=F",
+                "qty": 2,
+                "side": -1,
+                "entry": 7515,
+                "exit": 7509.5,
+                "multiplier": 5
+              }
+            ]
+          },
+          {
+            "model": "pairs",
+            "side": -1,
+            "signalTime": 1794411300000,
+            "confirmedAt": 1794411360000,
+            "entryTime": 1794411360000,
+            "entryNQ": 28399.25,
+            "entryMES": 7614.75,
+            "qty": 1,
+            "esQty": 2,
+            "day": "2026-11-11",
+            "entryZ": 2.043668334845699,
+            "nominalStopBudget": 100,
+            "context": {
+              "spread": -19346,
+              "mean": -19453.625,
+              "sd": 52.662654778631634,
+              "hedgeMES": 2
+            },
+            "exitTime": 1794412260000,
+            "exitNQ": 28486.5,
+            "exitMES": 7622.25,
+            "reason": "Close-based stop",
+            "gross": -99.5,
+            "fees": 3.7199999999999998,
+            "pnl": -103.22,
+            "legs": [
+              {
+                "symbol": "MNQ=F",
+                "qty": 1,
+                "side": -1,
+                "entry": 28399.25,
+                "exit": 28486.5,
+                "multiplier": 2
+              },
+              {
+                "symbol": "MES=F",
+                "qty": 2,
+                "side": 1,
+                "entry": 7614.75,
+                "exit": 7622.25,
+                "multiplier": 5
+              }
+            ]
+          }
+        ],
+        "signals": [
+          {
+            "model": "pairs",
+            "signalTime": 1793634480000,
+            "confirmedAt": 1793634540000,
+            "day": "2026-11-02",
+            "z": -2.0909314790809215,
+            "side": 1,
+            "status": "Simulated",
+            "context": {
+              "spread": -19226.5,
+              "mean": -19178.875,
+              "sd": 22.776930031649716,
+              "hedgeMES": 2
+            }
+          },
+          {
+            "model": "pairs",
+            "signalTime": 1793722560000,
+            "confirmedAt": 1793722620000,
+            "day": "2026-11-03",
+            "z": -2.3682605321096797,
+            "side": 1,
+            "status": "Simulated",
+            "context": {
+              "spread": -19384.5,
+              "mean": -19327.35,
+              "sd": 24.13163552959751,
+              "hedgeMES": 2
+            }
+          },
+          {
+            "model": "pairs",
+            "signalTime": 1793807040000,
+            "confirmedAt": 1793807100000,
+            "day": "2026-11-04",
+            "z": -2.389130684682839,
+            "side": 1,
+            "status": "Simulated",
+            "context": {
+              "spread": -19783.5,
+              "mean": -19608.208333333332,
+              "sd": 73.37048064825224,
+              "hedgeMES": 2
+            }
+          },
+          {
+            "model": "pairs",
+            "signalTime": 1793892780000,
+            "confirmedAt": 1793892840000,
+            "day": "2026-11-05",
+            "z": 2.3225023131539984,
+            "side": -1,
+            "status": "Simulated",
+            "context": {
+              "spread": -20735,
+              "mean": -20830.366666666665,
+              "sd": 41.06203301780801,
+              "hedgeMES": 2
+            }
+          },
+          {
+            "model": "pairs",
+            "signalTime": 1793895060000,
+            "confirmedAt": 1793895120000,
+            "day": "2026-11-05",
+            "z": 2.306254649684342,
+            "side": -1,
+            "status": "Simulated",
+            "context": {
+              "spread": -20602,
+              "mean": -20738.441666666666,
+              "sd": 59.16157900661167,
+              "hedgeMES": 2
+            }
+          },
+          {
+            "model": "pairs",
+            "signalTime": 1793895900000,
+            "confirmedAt": 1793895960000,
+            "day": "2026-11-05",
+            "z": 2.14089089610514,
+            "side": -1,
+            "status": "Simulated",
+            "context": {
+              "spread": -20450,
+              "mean": -20666.083333333332,
+              "sd": 100.93150179976297,
+              "hedgeMES": 2
+            }
+          },
+          {
+            "model": "pairs",
+            "signalTime": 1793982180000,
+            "confirmedAt": 1793982240000,
+            "day": "2026-11-06",
+            "z": 2.252728954425423,
+            "side": -1,
+            "status": "Simulated",
+            "context": {
+              "spread": -19965,
+              "mean": -20015.5,
+              "sd": 22.417255258691537,
+              "hedgeMES": 2
+            }
+          },
+          {
+            "model": "pairs",
+            "signalTime": 1794240060000,
+            "confirmedAt": 1794240120000,
+            "day": "2026-11-09",
+            "z": 2.0442023194477623,
+            "side": -1,
+            "status": "Simulated",
+            "context": {
+              "spread": -19637.5,
+              "mean": -19714.8,
+              "sd": 37.814260978278185,
+              "hedgeMES": 2
+            }
+          },
+          {
+            "model": "pairs",
+            "signalTime": 1794327960000,
+            "confirmedAt": 1794328020000,
+            "day": "2026-11-10",
+            "z": -2.2726974745523174,
+            "side": 1,
+            "status": "Simulated",
+            "context": {
+              "spread": -19666,
+              "mean": -19609.183333333334,
+              "sd": 24.999661108814145,
+              "hedgeMES": 2
+            }
+          },
+          {
+            "model": "pairs",
+            "signalTime": 1794411300000,
+            "confirmedAt": 1794411360000,
+            "day": "2026-11-11",
+            "z": 2.043668334845699,
+            "side": -1,
+            "status": "Simulated",
+            "context": {
+              "spread": -19346,
+              "mean": -19453.625,
+              "sd": 52.662654778631634,
+              "hedgeMES": 2
+            }
+          }
+        ],
+        "daily": [
+          {
+            "day": "2026-11-02",
+            "trades": 1,
+            "wins": 1,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": 100,
+            "hitInterval": [
+              20.654931437723747,
+              100
+            ],
+            "net": 22.78,
+            "gross": 26.5,
+            "fees": 3.7199999999999998,
+            "profitFactor": null,
+            "averageWinner": 22.78,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": 22.78,
+            "signals": 1
+          },
+          {
+            "day": "2026-11-03",
+            "trades": 1,
+            "wins": 1,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": 100,
+            "hitInterval": [
+              20.654931437723747,
+              100
+            ],
+            "net": 2.7800000000000002,
+            "gross": 6.5,
+            "fees": 3.7199999999999998,
+            "profitFactor": null,
+            "averageWinner": 2.7800000000000002,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": 2.7800000000000002,
+            "signals": 1
+          },
+          {
+            "day": "2026-11-04",
+            "trades": 1,
+            "wins": 0,
+            "losses": 1,
+            "breakeven": 0,
+            "hitRate": 0,
+            "hitInterval": [
+              0,
+              79.34506856227625
+            ],
+            "net": -120.72,
+            "gross": -117,
+            "fees": 3.7199999999999998,
+            "profitFactor": 0,
+            "averageWinner": null,
+            "averageLoser": 120.72,
+            "realizedPayoff": null,
+            "maxDrawdown": 120.72,
+            "expectancy": -120.72,
+            "signals": 1
+          },
+          {
+            "day": "2026-11-05",
+            "trades": 3,
+            "wins": 0,
+            "losses": 3,
+            "breakeven": 0,
+            "hitRate": 0,
+            "hitInterval": [
+              5.551115123125783e-15,
+              56.14970317550454
+            ],
+            "net": -158.16,
+            "gross": -147,
+            "fees": 11.16,
+            "profitFactor": 0,
+            "averageWinner": null,
+            "averageLoser": 52.72,
+            "realizedPayoff": null,
+            "maxDrawdown": 158.16,
+            "expectancy": -52.72,
+            "signals": 3
+          },
+          {
+            "day": "2026-11-06",
+            "trades": 1,
+            "wins": 0,
+            "losses": 1,
+            "breakeven": 0,
+            "hitRate": 0,
+            "hitInterval": [
+              0,
+              79.34506856227625
+            ],
+            "net": -0.7199999999999998,
+            "gross": 3,
+            "fees": 3.7199999999999998,
+            "profitFactor": 0,
+            "averageWinner": null,
+            "averageLoser": 0.7199999999999998,
+            "realizedPayoff": null,
+            "maxDrawdown": 0.7199999999999998,
+            "expectancy": -0.7199999999999998,
+            "signals": 1
+          },
+          {
+            "day": "2026-11-09",
+            "trades": 1,
+            "wins": 1,
+            "losses": 0,
+            "breakeven": 0,
+            "hitRate": 100,
+            "hitInterval": [
+              20.654931437723747,
+              100
+            ],
+            "net": 30.28,
+            "gross": 34,
+            "fees": 3.7199999999999998,
+            "profitFactor": null,
+            "averageWinner": 30.28,
+            "averageLoser": null,
+            "realizedPayoff": null,
+            "maxDrawdown": 0,
+            "expectancy": 30.28,
+            "signals": 1
+          },
+          {
+            "day": "2026-11-10",
+            "trades": 1,
+            "wins": 0,
+            "losses": 1,
+            "breakeven": 0,
+            "hitRate": 0,
+            "hitInterval": [
+              0,
+              79.34506856227625
+            ],
+            "net": -105.72,
+            "gross": -102,
+            "fees": 3.7199999999999998,
+            "profitFactor": 0,
+            "averageWinner": null,
+            "averageLoser": 105.72,
+            "realizedPayoff": null,
+            "maxDrawdown": 105.72,
+            "expectancy": -105.72,
+            "signals": 1
+          },
+          {
+            "day": "2026-11-11",
+            "trades": 1,
+            "wins": 0,
+            "losses": 1,
+            "breakeven": 0,
+            "hitRate": 0,
+            "hitInterval": [
+              0,
+              79.34506856227625
+            ],
+            "net": -103.22,
+            "gross": -99.5,
+            "fees": 3.7199999999999998,
+            "profitFactor": 0,
+            "averageWinner": null,
+            "averageLoser": 103.22,
+            "realizedPayoff": null,
+            "maxDrawdown": 103.22,
+            "expectancy": -103.22,
+            "signals": 1
+          }
+        ]
+      },
+      {
+        "id": "dom",
+        "name": "Order flow / DOM scalping",
+        "family": "Order flow",
+        "data": "Sequenced L2 updates + tape + queue model",
+        "direction": "Not specified",
+        "status": "Not tested / missing data",
+        "rules": "No order-book data was available. OHLC bars and trade volume cannot reconstruct resting depth, cancellations, queue priority, or tape timing. No hit rate or simulated DOM trades are generated.",
+        "stats": null,
+        "trades": [],
+        "signals": [],
+        "daily": [],
+        "reason": "No historical L2 order-book updates or queue data were obtained."
+      }
+    ]
+  },
+  "stress": [
+    {
+      "id": "fvg-a",
+      "stats": {
+        "trades": 0,
+        "wins": 0,
+        "losses": 0,
+        "breakeven": 0,
+        "hitRate": null,
+        "hitInterval": null,
+        "net": 0,
+        "gross": 0,
+        "fees": 0,
+        "profitFactor": null,
+        "averageWinner": null,
+        "averageLoser": null,
+        "realizedPayoff": null,
+        "maxDrawdown": 0,
+        "expectancy": null
+      }
+    },
+    {
+      "id": "fvg-b",
+      "stats": {
+        "trades": 10,
+        "wins": 4,
+        "losses": 6,
+        "breakeven": 0,
+        "hitRate": 40,
+        "hitInterval": [
+          16.818032970623616,
+          68.73262302663417
+        ],
+        "net": 57.79999999999998,
+        "gross": 95,
+        "fees": 37.20000000000001,
+        "profitFactor": 1.1205774365821095,
+        "averageWinner": 134.29000000000002,
+        "averageLoser": 79.89333333333335,
+        "realizedPayoff": 1.6808661548731643,
+        "maxDrawdown": 347.40000000000003,
+        "expectancy": 5.7799999999999985
+      }
+    },
+    {
+      "id": "orb",
+      "stats": {
+        "trades": 2,
+        "wins": 1,
+        "losses": 1,
+        "breakeven": 0,
+        "hitRate": 50,
+        "hitInterval": [
+          9.453120573423075,
+          90.54687942657694
+        ],
+        "net": 61.54,
+        "gross": 66.5,
+        "fees": 4.96,
+        "profitFactor": 2.0614004829251464,
+        "averageWinner": 119.52,
+        "averageLoser": 57.98,
+        "realizedPayoff": 2.0614004829251464,
+        "maxDrawdown": 57.98,
+        "expectancy": 30.77
+      }
+    },
+    {
+      "id": "vwap",
+      "stats": {
+        "trades": 3,
+        "wins": 2,
+        "losses": 1,
+        "breakeven": 0,
+        "hitRate": 66.66666666666666,
+        "hitInterval": [
+          20.76596008020477,
+          93.85080552796038
+        ],
+        "net": 386.55999999999995,
+        "gross": 394,
+        "fees": 7.4399999999999995,
+        "profitFactor": 6.370380661294803,
+        "averageWinner": 229.26999999999998,
+        "averageLoser": 71.98,
+        "realizedPayoff": 3.1851903306474014,
+        "maxDrawdown": 71.98000000000002,
+        "expectancy": 128.85333333333332
+      }
+    },
+    {
+      "id": "bands",
+      "stats": {
+        "trades": 5,
+        "wins": 3,
+        "losses": 2,
+        "breakeven": 0,
+        "hitRate": 60,
+        "hitInterval": [
+          23.07242812760128,
+          88.2379225767352
+        ],
+        "net": 51.62000000000001,
+        "gross": 66.5,
+        "fees": 14.88,
+        "profitFactor": 1.3611305442843151,
+        "averageWinner": 64.85333333333334,
+        "averageLoser": 71.47,
+        "realizedPayoff": 0.9074203628562102,
+        "maxDrawdown": 82.96,
+        "expectancy": 10.324000000000002
+      }
+    },
+    {
+      "id": "fade",
+      "stats": {
+        "trades": 1,
+        "wins": 0,
+        "losses": 1,
+        "breakeven": 0,
+        "hitRate": 0,
+        "hitInterval": [
+          0,
+          79.34506856227625
+        ],
+        "net": -96.98,
+        "gross": -94.5,
+        "fees": 2.48,
+        "profitFactor": 0,
+        "averageWinner": null,
+        "averageLoser": 96.98,
+        "realizedPayoff": null,
+        "maxDrawdown": 96.98,
+        "expectancy": -96.98
+      }
+    },
+    {
+      "id": "pairs",
+      "stats": {
+        "trades": 11,
+        "wins": 3,
+        "losses": 8,
+        "breakeven": 0,
+        "hitRate": 27.27272727272727,
+        "hitInterval": [
+          9.746059290024888,
+          56.56453011761291
+        ],
+        "net": -548.8399999999999,
+        "gross": -467,
+        "fees": 81.83999999999999,
+        "profitFactor": 0.15500677423327996,
+        "averageWinner": 33.56,
+        "averageLoser": 81.19,
+        "realizedPayoff": 0.41335139795541326,
+        "maxDrawdown": 561.8999999999999,
+        "expectancy": -49.894545454545444
+      }
+    },
+    {
+      "id": "dom",
+      "stats": null
+    }
+  ],
+  "rankingDefinition": "Observed net-hit rate = trades with net P&L > 0 divided by all closed trades, including breakevens in the denominator. Sort only executed single-instrument variants by this sample statistic; the pair basket has a separate close-based fill model and is not ranked alongside intrabar-stop models. Wilson 95% intervals are descriptive binomial intervals and assume independent trials; intraday clustering and multiple strategy comparisons weaken inference.",
+  "limits": [
+    "Only eight evaluation sessions. No strategy is established as superior or profitable in future markets.",
+    "No trained AI, hyperparameter search, or universal hit-rate estimate is involved. Each family contains many possible variants; these results describe only the written rules.",
+    "FVG variants are short-only; other single-instrument variants allow both directions. Signal frequencies, targets and exposure differ. Same dates/cost/risk budget do not make these identical bets.",
+    "Bar-based VWAP is approximated from typical price and minute volume; it is not a reconstruction of trade-level VWAP.",
+    "DOM was not backtested: no historical L2/queue dataset was obtained. Resting depth cannot be inferred from candles.",
+    "Pair spread is a fixed integer notional hedge with a rolling z-score; no cointegration or stability claim is made. It has next-open close-based exits, two-leg execution risk, and possible losses beyond its nominal stop budget.",
+    "Yahoo MNQ=F and MES=F front-contract feeds do not identify a dated contract month. No exchange-certified audit, broker fill validation, bid/ask spread, or queue model is available.",
+    "Single-instrument fills use adverse entry/stop slippage and assume target touch fills. Stop is checked first if stop and target occur in one bar. All values are simulated.",
+    "Risk $100 per trade, daily entry budget $300, maximum 3 contracts, assumed fee $1.24 round-trip per contract. Pair fee counts both legs. Account-specific Topstep drawdown rules are not tested.",
+    "Source hashes and deterministic reruns establish reproducibility, not that the vendor feed or model assumptions reflect executable prices."
+  ]
+}
