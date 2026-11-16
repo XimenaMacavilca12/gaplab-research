@@ -1,0 +1,30 @@
+name: Backtest or research discrepancy
+description: Question a rule, source, calculation, or result.
+title: '[Research] '
+body:
+  - type: input
+    id: experiment
+    attributes:
+      label: Exact experiment or report
+      placeholder: fvg-3-morning, Nov 9–13 check period, time-study/report.json
+    validations:
+      required: true
+  - type: textarea
+    id: observation
+    attributes:
+      label: What appears incorrect or needs clarification?
+      description: Include the trade date/time in New York time, dataset/source, and the observed figures.
+    validations:
+      required: true
+  - type: textarea
+    id: reasoning
+    attributes:
+      label: Expected calculation or rule
+      description: Link the supporting source or show your calculation. A general claimed hit rate is not a reproducible comparison.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Attach a screenshot, exported report, data hash, or small reproducible example. Do not upload broker secrets.

@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Open the hosted research website
+    url: https://gaplab-mnq-research.creamcedar20.chatgpt.site
+    about: The hosted site has its own access settings, separate from this repository.

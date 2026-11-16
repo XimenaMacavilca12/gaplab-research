@@ -1,0 +1,12 @@
+{
+  "name": "gaplab-research",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Futures strategy research website and reproducible historical simulations",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node tests/engine.test.mjs && node tests/evidence.test.mjs && node tests/comparison.test.mjs && node tests/time-study.test.mjs",
+    "check": "node --check dist/app.mjs && node --check dist/engine.mjs && node --check dist/evidence.mjs && node --check dist/comparison-engine.mjs && node --check dist/strategy-research.mjs && node --check dist/research-catalog.mjs && node --check dist/time-engine.mjs && node --check dist/time-research.mjs"
+  }
+}

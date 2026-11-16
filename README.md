@@ -1,5 +1,9 @@
 # Gaplab — Futures Research
 
+[Hosted website](https://gaplab-mnq-research.creamcedar20.chatgpt.site) · [Report an issue](https://github.com/XimenaMacavilca12/gaplab-research/issues/new/choose) · [Contributing guide](CONTRIBUTING.md)
+
+This repository contains the finished static website, research engines, frozen reports, input snapshots and checks. Use **Issues** for teammate feedback and send an issue URL to Codex when you want a fix. Repository visibility and hosted Site access are separate settings.
+
 Private, buildless browser application for researching the MNQ strategy described in the user's two July 15 recap videos. No backend, API credentials, live market feed, trained AI, or order routing is present.
 
 ## Features
