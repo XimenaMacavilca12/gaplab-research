@@ -1,0 +1,86 @@
+{
+  "provider": "Yahoo Finance chart API",
+  "downloads": [
+    {
+      "symbol": "MNQ",
+      "start": "2026-10-22",
+      "end": "2026-10-30",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/MNQ%3DF?period1=1792627200&period2=1793318400&interval=1m",
+      "file": "MNQ-2026-10-22-2026-10-30.json",
+      "bars": 10073,
+      "sha256": "978001d91c100146749a6e1bf74cdda41d8366df1b4ce9a24f985615ea45b700",
+      "retrievedAt": "2026-11-16T01:15:26.308169+00:00",
+      "providerMetadata": {
+        "symbol": "MNQ=F",
+        "shortName": "Micro E-mini Nasdaq-100 Index F",
+        "instrumentType": "FUTURE",
+        "exchangeName": "CME",
+        "dataGranularity": "1m",
+        "exchangeTimezoneName": "America/New_York"
+      }
+    },
+    {
+      "symbol": "MNQ",
+      "start": "2026-10-30",
+      "end": "2026-11-07",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/MNQ%3DF?period1=1793318400&period2=1794009600&interval=1m",
+      "file": "MNQ-2026-10-30-2026-11-07.json",
+      "bars": 10073,
+      "sha256": "8b9f8a54ec3f6aa1ec85c7ffea54426968d7943543286b651fe0eded8e2b75dc",
+      "retrievedAt": "2026-11-16T01:15:26.398720+00:00",
+      "providerMetadata": {
+        "symbol": "MNQ=F",
+        "shortName": "Micro E-mini Nasdaq-100 Index F",
+        "instrumentType": "FUTURE",
+        "exchangeName": "CME",
+        "dataGranularity": "1m",
+        "exchangeTimezoneName": "America/New_York"
+      }
+    },
+    {
+      "symbol": "MNQ",
+      "start": "2026-11-07",
+      "end": "2026-11-14",
+      "url": "https://query1.finance.yahoo.com/v8/finance/chart/MNQ%3DF?period1=1794009600&period2=1794614400&interval=1m",
+      "file": "MNQ-2026-11-07-2026-11-14.json",
+      "bars": 7245,
+      "sha256": "e17180c5087b4ff52009f6900792611c958dfa84a35706d0667a5660a5ca0fef",
+      "retrievedAt": "2026-11-16T01:15:26.226783+00:00",
+      "providerMetadata": {
+        "symbol": "MNQ=F",
+        "shortName": "Micro E-mini Nasdaq-100 Index F",
+        "instrumentType": "FUTURE",
+        "exchangeName": "CME",
+        "dataGranularity": "1m",
+        "exchangeTimezoneName": "America/New_York"
+      }
+    }
+  ],
+  "validation": {
+    "MNQ": {
+      "rows": 23096,
+      "nullOHLCDiscarded": 4295,
+      "badPriceRows": 0,
+      "missingVolumeRows": 0,
+      "rthByDate": {
+        "2026-10-22": 391,
+        "2026-10-23": 391,
+        "2026-10-26": 391,
+        "2026-10-27": 391,
+        "2026-10-28": 391,
+        "2026-10-29": 391,
+        "2026-10-30": 382,
+        "2026-11-02": 391,
+        "2026-11-03": 391,
+        "2026-11-04": 391,
+        "2026-11-05": 391,
+        "2026-11-06": 391,
+        "2026-11-09": 391,
+        "2026-11-10": 391,
+        "2026-11-11": 391,
+        "2026-11-12": 391,
+        "2026-11-13": 391
+      }
+    }
+  }
+}

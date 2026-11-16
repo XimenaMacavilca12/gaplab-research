@@ -44,3 +44,15 @@ The `#strategies` route contains a source-linked library of six strategy familie
 Sources include exchange/broker methodology, John Bollinger’s own guidance, author/academic abstracts on order flow, opening breakouts and stock pairs, and platform documentation of FVG geometry. These sources establish mechanisms or specific historical findings, not universal MNQ hit rates. No model was trained, no optimization was performed, and the window overlaps previously reviewed FVG sessions.
 
 Validation: `node tests/comparison.test.mjs` checks all hashes, full baseline/stress reproduction, next-candle entries, causal calibration, daily and intraday signal-prefix invariance, two-leg costs/P&L, no-trade denominators, conservative ambiguous-bar fills and explicit DOM omission. DOM-based smoke tests exercised navigation, citations, charts, filters, replay and the expectancy calculator. No visual browser QA was available.
+
+## Multi-timeframe/session research
+
+The `#timeframes` page adds ORB, FVG, IFVG, an explicitly defined ICT-style sweep/structure-shift/gap subset, confirmed-pivot head-and-shoulders, and a price-only liquidity-sweep proxy. The user clarified IFG as IFVG and HSS as head-and-shoulders.
+
+`time-engine.mjs` detects completed 1m/3m/5m chart setups, then resolves fills on the original 1m observations. Entries are independently studied in morning, midday and afternoon windows (54 cells). Head-and-shoulders pivots require two later chart bars before becoming available; no pivot is backdated into an earlier decision. Original opening-range boundaries and its first-attempt rule remain fixed across windows. Positions open at a minute's start block a new entry even if they exit later in that same minute.
+
+The refreshed MNQ=F snapshot contains 16 complete sessions through Nov 13, 2026; Oct 30 was excluded for incomplete RTH coverage. Select only on the 11 earlier sessions (Oct 22–Nov 6), with minimum 10 trades, positive net and average realized R, and positive doubled-cost net. Later checks use Nov 9–13, separately identifying newly added Nov 12–13. Nov 9–11 overlap prior project research, so this is not described as untouched prospective validation. Every cell's results remain visible, including losses and no-trades; cells may overlap and must not be pooled as a portfolio.
+
+`dist/time-study/` records frozen method, source metadata, response hashes, input CSV, all signals/rejections/trades, daily results, cost-stress metrics and the earlier-only selection. Rebuild with `node scripts/build-time-study.mjs`; validate with `node tests/time-study.test.mjs`. The page can verify all engine/input/config hashes and reproduce all 54 experiments. Old evidence/strategy reports are preserved.
+
+The research candidate is the earlier-selected 3m morning FVG variant, not a universal winner. Its later sample is only four trades; its one newly added-date trade lost. Sources cover pattern mechanics and overfitting concerns; the original ICT video was available only as page metadata, not reviewed in full. No trained AI or perfect setup is claimed. DOM-based UI checks passed; no visual browser QA was available.
